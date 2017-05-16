@@ -14,7 +14,10 @@ $(() => {
 require('./example')
 require('./carts')
 const authEvents = require('./auth/events.js')
+const cartsEvents = require('./carts/events.js')
 
 $(() => {
   authEvents.addHandlers()
+  cartsEvents.addHandlers()
+  cartsEvents.hideCart()
 })
