@@ -1,0 +1,17 @@
+
+{{#each products as |product|}}
+  <h1 data-id="{{product.id}}"> <small>Name: {{product.name}}</small></h1>
+  <div>
+    {{#if product.image}}
+      {{product.image}}
+    {{else}}
+      No image.
+    {{/if}}
+    {{product.name}}
+    {{product.price}}
+    {{product.description}}
+    {{product.brand}}
+    {{product.category}}
+  </div>
+
+{{/each}}
