@@ -1,9 +1,8 @@
 'use strict'
 
-const setAPIOrigin = require('../../../lib/set-api-origin')
-const config = require('../config')
-const userApi = require('../api.js')
-const userUi = require('../ui.js')
+// const setAPIOrigin = require('../../../lib/set-api-origin')
+const userApi = require('./api.js')
+const userUi = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields')
 // console.log('up and runnning user events')
 
@@ -37,7 +36,18 @@ const onChgPswd = function (event) {
     .then(userUi.chgPswdSuccess)
     .catch(userUi.chgPswdFailure)
 }
+
+// **********************
+
+const linkSignUp = function () {
+  $('.sign-in').hide()
+  $('.dropdown-menu').click()
+  $('.sign-up').show()
+}
+
 const addHandlers = () => {
+  $('.sign-up').hide()
+  $('.linkSignUp').on('click', linkSignUp)
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)

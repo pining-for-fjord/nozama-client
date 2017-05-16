@@ -45,16 +45,16 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login/Sign-Up</b> <span class="caret"></span></a>
 			           <ul id="login-dp" class="dropdown-menu">
 				           <li>
-					           <div class="row">
+					           <div class="row sign-in">
 							        <div class="col-md-12">
-								       <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+								       <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="sign-in">
 										     <div class="form-group">
 											     <label class="sr-only" for="exampleInputEmail2">Email address</label>
-											       <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+											       <input type="email" name="credentials[email]" class="form-control" placeholder="Email address" required>
 										     </div>
 										     <div class="form-group">
 											     <label class="sr-only" for="exampleInputPassword2">Password</label>
-											       <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+											       <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
 										     </div>
 										     <div class="form-group">
 											    <button type="submit" class="btn btn-primary btn-block">Sign-In</button>
@@ -62,25 +62,25 @@
 								        </form>
 							        </div>
 							        <div class="bottom text-center">
-								        Dont have an account? <a href="#"><b>Sign-Up</b></a>
+								        Dont have an account? <a href="#" class="linkSignUp"><b>Sign-Up</b></a>
 							        </div>
 					           </div>
                      <!-- END of SIGN-IN -->
                      <!-- Start of Sign-UP -->
-                     <div class="row">
+                     <div class="row sign-up">
                       <div class="col-md-12">
-                       <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                       <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="sign-up">
                          <div class="form-group">
                            <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                             <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                             <input type="email" name="credentials[email]" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
                          </div>
                          <div class="form-group">
                            <label class="sr-only" for="exampleInputPassword2">Password</label>
-                             <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                             <input type="password" name="credentials[password]" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
                          </div>
                          <div class="form-group">
                            <label class="sr-only" for="exampleInputPassword2">Confirm Password</label>
-                             <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                             <input type="password" name="credentials[password_confirmation]" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
                          </div>
                          <div class="form-group">
                           <button type="submit" class="btn btn-primary btn-block">Sign-Up</button>
@@ -91,14 +91,30 @@
                         Already have an account? <a href="#"><b>Sign-In</b></a>
                       </div>
                      </div>
-                     <!-- End of Sign-up __>
+                     <!-- End of Sign-up -->
 				           </li>
 			           </ul>
                </li>
 
               </ul>
-              <!- ***** start of login / sign-up drop down in NAV **** -->
+              <!-- ***** start of login / sign-up drop down in NAV **** -->
             </div>
+
+            <!-- sign out change-password -->
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>signout</b> <span class="caret"></span></a>
+                  <ul id="login-dp" class="dropdown-menu">
+                    <li>
+                      <div class="row">
+                        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="sign-out">
+                           <button type="submit" class="btn btn-primary btn-block">sign-out</button>
+                         </form>
+                          </div>
+                      <!-- END of SIGN-OUT -->
+
+
+             <!-- end sign out change-password -->
                 <!-- /.navbar-collapse -->
 
          </div>
