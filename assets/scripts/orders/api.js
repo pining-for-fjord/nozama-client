@@ -3,14 +3,14 @@ const config = require('../config')
 
 const index = () => {
   return $.ajax({
-    url: config.apiOrigin + '/carts',
+    url: config.apiOrigin + '/orders',
     method: 'GET'
   })
 }
 
 const show = (id) => {
   return $.ajax({
-    url: config.apiOrigin + '/carts' + id,
+    url: config.apiOrigin + '/orders' + id,
     method: 'GET'
   })
 }
