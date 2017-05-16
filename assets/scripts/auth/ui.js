@@ -1,5 +1,6 @@
 'use strict'
 require('../index')
+const cartsEvents = require('../carts/events')
 
 const store = require('../store')
 
@@ -12,6 +13,7 @@ const signInSuccess = (data) => {
 //  console.log('signin success ran data is ', data)
   store.user = data.user
   $('#sign-in').trigger('reset')
+  cartsEvents.createCart()
 }
 
 const signInFailure = () => {
