@@ -1,10 +1,13 @@
 'use strict'
 const config = require('../config')
 
-const index = () => {
+const index = (categoryName) => {
   return $.ajax({
     url: config.apiOrigin + '/products',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      category: categoryName
+    }
   })
 }
 
