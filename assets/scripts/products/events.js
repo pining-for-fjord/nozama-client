@@ -23,6 +23,12 @@ const hideProduct = function () {
   $('#product').hide()
 }
 
+// js for handlebars for products
+
+// $('#cart').click(flip)
+
+
+
 const addHandlers = () => {
   $('.product-category').on('click', getProducts)
 }

@@ -11,6 +11,22 @@ const getProductsSuccess = (data) => {
   $('.products').append(showProductsHTML)
   $('#landing').hide()
   $('#products').show()
+  const vw = $(window).outerWidth()
+  if (vw > 768) {
+    $('.card').hover(
+  function () {
+    $('.description').toggleClass('show')
+    $('.image-wrapper').toggleClass('shrink')
+    flip()
+  })
+  }
+}
+
+function flip () {
+  $('#cart').addClass('flipped')
+  $('#cart').addClass('added')
+  $('.backside').addClass('show')
+  $('.front').addClass('hide')
 }
 
 const getProductsFailure = (product) => {
