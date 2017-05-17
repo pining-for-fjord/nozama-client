@@ -1,5 +1,5 @@
 {{#each products as |product|}}
-<div class="card-wrapper">
+<div class="card-wrapper col-md-3 col-sm-6">
   <div class="card">
   <div class="image-wrapper">
     {{#if product.image}}
@@ -24,8 +24,6 @@
     <div class="actions">
       <form id="{{product._id}}">
       <input id="cart" type="submit" class="button flip green-solid cart browse-products" value="Add to Cart">
-        <span class="front">Add to Cart</span>
-        <span class="backside">Added</span>
       </form>
     </div>
   </div>
