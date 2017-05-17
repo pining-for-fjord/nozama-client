@@ -1,7 +1,8 @@
 'use strict'
 const api = require('./api')
 const ui = require('./ui')
-const cart = require('../store')
+// const store = require('../store')
+// const user = require('../store')
 
 const createCart = function () {
   const data = {
@@ -26,8 +27,19 @@ const showCart = function () {
 }
 
 const addToCart = function (data) {
-  console.log(data)
-  api.update(data, 'add')
+  const params = {
+    cart: {
+      totalPrice: data.price,
+      products: [{
+        _id: data._id,
+        sku: data.sku,
+        quantity: 1,
+        name: data.name,
+        price: data.price
+      }]
+    }
+  }
+  api.update(params, 'add')
     .then(ui.onUpdateCartSuccess)
     .catch(ui.onUpdateCartFailure)
 }

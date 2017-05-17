@@ -38,8 +38,10 @@ const destroy = (id) => {
 }
 
 const update = (data, action) => {
+  console.log(data)
+  console.log(store.cart)
   return $.ajax({
-    url: config.apiOrigin + '/carts/' + data.cart.id,
+    url: config.apiOrigin + '/carts/' + store.cart._id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token,

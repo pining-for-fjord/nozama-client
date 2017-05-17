@@ -9,7 +9,17 @@ const onCreateCartFailure = function (error) {
   console.log(error)
 }
 
+const onUpdateCartSuccess = function (data) {
+  console.log(data)
+}
+
+const onUpdateCartFailure = function (error) {
+  console.log(error)
+}
+
 module.exports = {
   onCreateCartSuccess,
-  onCreateCartFailure
+  onCreateCartFailure,
+  onUpdateCartSuccess,
+  onUpdateCartFailure
 }
