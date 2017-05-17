@@ -16,6 +16,7 @@ require('./carts')
 const authEvents = require('./auth/events.js')
 const cartsEvents = require('./carts/events.js')
 const productsEvents = require('./products/events.js')
+const ordersEvents = require('./orders/events.js')
 
 $(() => {
   authEvents.addHandlers()
@@ -23,4 +24,6 @@ $(() => {
   cartsEvents.hideCart()
   productsEvents.addHandlers()
   productsEvents.hideProduct()
+  ordersEvents.addHandlers()
+  ordersEvents.hideOrder()
 })

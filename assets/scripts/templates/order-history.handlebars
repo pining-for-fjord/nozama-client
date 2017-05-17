@@ -1,0 +1,9 @@
+{{#each orders as |order|}}
+  <h1 data-id="{{order.id}}"> <small>Name: {{order.shippingAdress.recipientName}}</small></h1>
+  <div>
+    {{order.shippingAddress}}
+    {{order.paymentDetails}}
+    {{order.products}}
+  </div>
+
+{{/each}}
