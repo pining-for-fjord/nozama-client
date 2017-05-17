@@ -27,9 +27,19 @@ const getOrderFailure = (error) => {
   console.log('read bombed')
 }
 
+const createOrderSuccess = () => {
+  console.log('created order');
+}
+
+const createOrderFailure = (error) => {
+  console.log('uh oh', error);
+}
+
 module.exports = {
   getOrdersSuccess,
   getOrdersFailure,
   getOrderSuccess,
-  getOrderFailure
+  getOrderFailure,
+  createOrderSuccess,
+  createOrderFailure
 }

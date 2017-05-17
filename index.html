@@ -324,7 +324,7 @@
                 </div>
             </div>
             <div class="row cart-body">
-                <form class="form-horizontal" method="post" action="">
+                <form id="order-form" class="form-horizontal" method="post" action="">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
@@ -384,18 +384,18 @@
                         <div class="panel-body">
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Credit Card Number:</strong></div>
-                                <div class="col-md-12"><input type="text" id='card-number' class="form-control" name="card[number]" value="" /></div>
+                                <div class="col-md-12"><input size='16' maxlength='16'  type="text" id='card-number' class="form-control" name="card[number]" value="" /></div>
                             </div>
                             <div class="form-group">
                                 <div id='card-cvc' class="col-md-12"><strong>Card CVC:</strong></div>
-                                <div class="col-md-12"><input type="text" class="form-control" name="card[cvc]" value="" /></div>
+                                <div class="col-md-12"><input size='3' maxlength='3'  type="text" class="form-control" name="card[cvc]" value="" /></div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <strong>Expiration Date</strong>
                                 </div>
-                                <div id='card-expiry-month' class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="card[exp_month]">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <select id='card-expiry-month' class="form-control" name="card[exp_month]">
                                         <option value="">Month</option>
                                         <option value="01">01</option>
                                         <option value="02">02</option>
@@ -411,11 +411,9 @@
                                         <option value="12">12</option>
                                 </select>
                                 </div>
-                                <div id='card-expiry-year' class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="card[year]">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <select id='card-expiry-year' class="form-control" name="card[year]">
                                         <option value="">Year</option>
-                                        <option value="2015">2015</option>
-                                        <option value="2016">2016</option>
                                         <option value="2017">2017</option>
                                         <option value="2018">2018</option>
                                         <option value="2019">2019</option>
