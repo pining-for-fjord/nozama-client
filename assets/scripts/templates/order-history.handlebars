@@ -1,5 +1,5 @@
 {{#each orders as |order|}}
-  <h1 data-id="{{order.id}}"> <small>Name: {{order.shippingAdress.recipientName}}</small></h1>
+  <h1 data-id="{{order.id}}"> <small>Date: {{order.createdAt}}</small></h1>
   <div>
     {{order.shippingAddress.recipientName}}
     {{order.shippingAddress.address}}
