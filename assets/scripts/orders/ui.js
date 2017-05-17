@@ -5,13 +5,14 @@ const showOrdersTemplate = require('../templates/order-history.handlebars')
 const getOrdersSuccess = (data) => {
   console.log(data)
   store.orders = data.orders
+  console.log(data.orders)
   const showOrdersHTML = showOrdersTemplate({
     orders: data.orders
   })
-  $('.orders').empty()
-  $('.orders').append(showOrdersHTML)
+  $('#order').empty()
+  $('#order').append(showOrdersHTML)
   $('#landing').hide()
-  $('#orders').show()
+  $('#order').show()
 }
 
 const getOrdersFailure = (error) => {
