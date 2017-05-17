@@ -41,13 +41,40 @@ const onChgPswd = function (event) {
 
 const linkSignUp = function () {
   $('.sign-in').hide()
-  $('.dropdown-menu').click()
   $('.sign-up').show()
+  $('.dropdown-menu').click(stopPropagation)
+}
+
+const linkSignIn = function () {
+  $('.sign-up').hide()
+  $('.sign-in').show()
+  $('.dropdown-menu').click(stopPropagation)
+}
+
+const linkChangePassword = function () {
+  $('.sign-out').hide()
+  $('.change-password').show()
+  $('.dropdown-menu').click(stopPropagation)
+}
+
+const linkAccount = function () {
+  $('.change-password').hide()
+  $('.sign-out').show()
+  $('.dropdown-menu').click(stopPropagation)
+}
+
+const stopPropagation = function () {
+  event.stopPropagation()
 }
 
 const addHandlers = () => {
   $('.sign-up').hide()
+  $('.change-password').hide()
+  $('.sign-out').hide()
+  $('.linkChangePassword').on('click', linkChangePassword)
+  $('.linkAccount').on('click', linkAccount)
   $('.linkSignUp').on('click', linkSignUp)
+  $('.linkSignIn').on('click', linkSignIn)
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)

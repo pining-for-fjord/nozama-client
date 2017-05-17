@@ -41,9 +41,8 @@
                     </ul> -->
                     <!-- ***** start of login / sign-up drop down in NAV **** -->
            <ul class="nav navbar-nav navbar-right">
-             <span class="glyphicon glyphicon-shopping-cart cartcolor"></span>
-             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login/Sign-Up</b> <span class="caret"></span></a>
+             <li class="dropdown account">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Account</b> <span class="caret"></span></a>
 			           <ul id="login-dp" class="dropdown-menu">
 				           <li>
 					           <div class="row sign-in">
@@ -89,67 +88,106 @@
                         </form>
                       </div>
                       <div class="bottom text-center">
-                        Already have an account? <a href="#"><b>Sign-In</b></a>
+                        Already have an account? <a href="#" class="linkSignIn"><b>Sign-In</b></a>
                       </div>
                      </div>
                      <!-- End of Sign-up -->
+                     <!-- start of Singout -->
+                     <div class="row sign-out">
+                       <div class="col-md-12">
+                         <div class="bottom text-center">
+                          <a href="#" class="linkChangePassword"><b>Change Password</b></a>
+                        </div>
+                          <div class="bottom text-center">
+                          <p> or </p>
+                        </div>
+                       <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="sign-out">
+                          <button type="submit" class="btn btn-primary btn-block">sign-out</button>
+                        </form>
+                         </div>
+                       </div>
+                       <!-- end of Sign-out -->
+                     <!-- Start of change password -->
+                     <div class="row change-password">
+                      <div class="col-md-12">
+                       <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="change-password">
+                         <div class="form-group">
+                           <label class="sr-only" for="exampleInputPassword2">Old Password</label>
+                             <input type="password" name="passwords[old]" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                         </div>
+                         <div class="form-group">
+                           <label class="sr-only" for="exampleInputPassword2">New Password</label>
+                             <input type="password" name="password[new]" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                         </div>
+                         <div class="form-group">
+                          <button type="submit" class="btn btn-primary btn-block">change-password</button>
+                         </div>
+                        </form>
+                      </div>
+                      <div class="bottom text-center">
+                        Want to go back? <a href="#" class="linkAccount"><b>Account Menu</b></a>
+                      </div>
+                     </div>
+                     <!-- End of change password -->
 				           </li>
 			           </ul>
                </li>
-
               </ul>
-              <!-- ***** start of login / sign-up drop down in NAV **** -->
             </div>
-
-            <!-- sign out change-password -->
-            <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>signout</b> <span class="caret"></span></a>
-                  <ul id="login-dp" class="dropdown-menu">
-                    <li>
-                      <div class="row">
-                        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="sign-out">
-                           <button type="submit" class="btn btn-primary btn-block">sign-out</button>
-                         </form>
-                          </div>
-                          <!-- signout end -->
-                          <div class="row change-password">
-                           <div class="col-md-12">
-                            <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="change-password">
-                              <div class="form-group">
-                                <label class="sr-only" for="exampleInputPassword2">Old Password</label>
-                                  <input type="password" name="passwords[old]" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                              </div>
-                              <div class="form-group">
-                                <label class="sr-only" for="exampleInputPassword2">New Password</label>
-                                  <input type="password" name="password[new]" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                              </div>
-                              <div class="form-group">
-                               <button type="submit" class="btn btn-primary btn-block">change-password</button>
-                              </div>
-                             </form>
-                           </div>
-                          </div>
 
                         </li>
                       </ul>
                     </li>
                   </ul>
-                      <!-- END of SIGN-OUT -->
-
-             <!-- end sign out change-password -->
                 <!-- /.navbar-collapse -->
-
          </div>
-            <!-- /.container -->
+            <!-- end of DIV container -->
         </nav>
-
+<!-- END OF NAV BAR -->
         <!-- *******  Page Content Body  ******-->
         <div class="container">
+          <!-- ERROR MESSAGES -->
+
+    <div id="chgPswdSuccess" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="alert alert-success">
+              <h4>Password Change Successfully!</h4>
+              <p>Change password performed successfully. Please remember to use new password!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="chgPswdFailure" class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="alert alert-danger alert-dismissible text-center" role="alert">
+                <h4>Password Change Failed!</h4>
+                <p>The Old Password you enter incorrect.  Please try again!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="signInFailure" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="alert alert-danger alert-dismissible text-center" role="alert">
+                  <h4>Sign-In Failed!</h4>
+                  <p>Either your email or password is incorrect.  Please try again!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- end of error messages -->
 <section class="landing" id="landing">
             <!-- Jumbotron Header -->
             <header class="jumbotron hero-spacer">
-                <h1>ALAN IS A DICTATOR!</h1>
+                <h1>HOT YOGA with rational Ryan!</h1>
                 <p>test page etc etc Fjord team test test </p>
                 <p><a class="btn btn-primary btn-large">Call to action!</a>
                 </p>
