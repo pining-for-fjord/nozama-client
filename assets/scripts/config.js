@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://salty-journey-97556.herokuapp.com/'
+    production: 'https://salty-journey-97556.herokuapp.com'
   }
 }
 
