@@ -207,54 +207,44 @@
             <!-- Page Features -->
             <div class="row text-center">
 
-                <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="col-md-3 col-sm-6 hero-feature product-category">
                     <div class="thumbnail">
                         <img src="http://placehold.it/800x500" alt="">
                         <div class="caption">
                             <h3>Feature Label</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <p>
-                                <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                            </p>
+
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="col-md-3 col-sm-6 hero-feature product-category">
                     <div class="thumbnail">
                         <img src="http://placehold.it/800x500" alt="">
                         <div class="caption">
                             <h3>Feature Label</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <p>
-                                <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                            </p>
+
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="col-md-3 col-sm-6 hero-feature product-category">
                     <div class="thumbnail">
                         <img src="http://placehold.it/800x500" alt="">
                         <div class="caption">
                             <h3>Feature Label</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <p>
-                                <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="col-md-3 col-sm-6 hero-feature product-category">
                     <div class="thumbnail">
                         <img src="http://placehold.it/800x500" alt="">
                         <div class="caption">
                             <h3>Feature Label</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <p>
-                                <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -322,6 +312,7 @@
 <!-- ****************END OF CHECKOUT AREA handlebars ************************* -->
 
   <!-- ****************ORDER AREA handlebars ************************* -->
+  <button type="button" class="btn btn-primary btn-block" id="order-button">orders</button>
   <section class="order" id="order">
   </section>
 <!-- ****************END OF ORDER AREA handlebars ************************* -->
@@ -330,22 +321,58 @@
 
 
 
+<div class="about__section row text-center"> <!-- Specificity container -->
+  <div class="row heading">
+  <div class="col-md-6 col-md-offset-3">
+    <h2 class="text-center bottom-line">Meet Our Team</h2>
+    <p class="subheading text-center">Creative cats all over the place</p>
+  </div>
+</div>
+<div class="about__slot col-md-3 col-sm-6 hero-feature">
+  <div class="headshot" onclick="biograph(this.parentNode)" style="background-image:url('http://placekitten.com/254/254')"></div>
+  <div class="about__info">
+  <h4 class="name">Alan</h4>
+  <h5 class="title">Dath Vadar</h5>
+  </div>
+  </div>
+<div class="about__slot col-md-3 col-sm-6 hero-feature">
+    <div class="headshot" onclick="biograph(this.parentNode)" style="background-image:url('http://placekitten.com/284/284')"></div>
+  <div class="about__info">
+  <h4 class="name">Deirdre</h4>
+  <h5 class="title">Ninja</h5>
+  </div>
+  </div>
+
+  <div class="about__slot col-md-3 col-sm-6 hero-feature">
+    <div class="headshot"  onclick="biograph(this.parentNode)" style="background-image:url('http://placekitten.com/326/326')"></div>
+  <div class="about__info">
+  <h4 class="name">Jon</h4>
+  <h5 class="title">Jedi</h5>
+  </div>
+  </div>
+
+  <div class="about__slot col-md-3 col-sm-6 hero-feature">
+    <div class="headshot"  onclick="biograph(this.parentNode)" style="background-image:url('http://placekitten.com/326/326')"></div>
+  <div class="about__info">
+  <h4 class="name">Ryan</h4>
+  <h5 class="title">Flash</h5>
+  </div>
+  </div>
+
+  </div>
 
 
+        <!-- Footer -->
+              <footer>
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <p>Copyright &copy; Your Website 2014</p>
+                      </div>
+                  </div>
+              </footer>
 
-
-      <!-- Footer -->
-            <footer>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <p>Copyright &copy; Your Website 2014</p>
-                    </div>
-                </div>
-            </footer>
-
-        </div>
-        <!-- /.container -->
-
+          </div>
+          <!-- /.container -->
     </body>
 
     </html>
