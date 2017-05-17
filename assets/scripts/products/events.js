@@ -19,7 +19,17 @@ const getProduct = function (prodId) {
   .catch(prodUi.getProductFailure)
 }
 
+const hideProduct = function () {
+  $('#product').hide()
+}
+
+const addHandlers = () => {
+  $('.product-category').on('click', getProducts)
+}
+
 module.exports = {
   getProducts,
-  getProduct
+  getProduct,
+  hideProduct,
+  addHandlers
 }

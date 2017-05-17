@@ -1,15 +1,16 @@
 'use strict'
-require('./index')
-const store = require('./store')
+const store = require('../store')
 const showProductsTemplate = require('../templates/browse-products.handlebars')
 
 const getProductsSuccess = (data) => {
   store.data = data
   const showProductsHTML = showProductsTemplate({
-    monsters: data.monsters
+    products: data.products
   })
   $('.products').empty()
   $('.products').append(showProductsHTML)
+  $('#landing').hide()
+  $('#products').show()
 }
 
 const getProductsFailure = (product) => {
