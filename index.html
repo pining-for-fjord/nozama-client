@@ -384,17 +384,17 @@
                         <div class="panel-body">
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Credit Card Number:</strong></div>
-                                <div class="col-md-12"><input type="text" class="form-control" name="card[number]" value="" /></div>
+                                <div class="col-md-12"><input type="text" id='card-number' class="form-control" name="card[number]" value="" /></div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-12"><strong>Card CVC:</strong></div>
+                                <div id='card-cvc' class="col-md-12"><strong>Card CVC:</strong></div>
                                 <div class="col-md-12"><input type="text" class="form-control" name="card[cvc]" value="" /></div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <strong>Expiration Date</strong>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div id='card-expiry-month' class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <select class="form-control" name="card[exp_month]">
                                         <option value="">Month</option>
                                         <option value="01">01</option>
@@ -411,7 +411,7 @@
                                         <option value="12">12</option>
                                 </select>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div id='card-expiry-year' class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <select class="form-control" name="card[year]">
                                         <option value="">Year</option>
                                         <option value="2015">2015</option>
@@ -443,7 +443,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <button type="submit" id="order-button" class="btn btn-primary btn-submit-fix">Place Order</button>
+                                    <button type="submit" id="place-order" class="btn btn-primary btn-submit-fix">Place Order</button>
                                 </div>
                             </div>
                         </div>
