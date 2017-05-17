@@ -16,7 +16,7 @@ const getOrdersSuccess = (data) => {
 }
 
 const getOrdersFailure = (error) => {
-//  console.log('read bombed')
+  console.log('read bombed')
 }
 
 const getOrderSuccess = (data) => {
@@ -24,7 +24,7 @@ const getOrderSuccess = (data) => {
 }
 
 const getOrderFailure = (error) => {
-//  console.log('read bombed')
+  console.log('read bombed')
 }
 
 module.exports = {
