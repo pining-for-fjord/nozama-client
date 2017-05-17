@@ -12,6 +12,10 @@ const getOrders = function () {
   ordersApi.index()
   .then(ordersUi.getOrdersSuccess)
   .catch(ordersUi.getOrdersFailure)
+  $('#landing').hide()
+  $('#products').hide()
+  $('#cart').hide()
+  $('#checkout-container').hide()
 }
 
 const getOrder = function (orderId) {
@@ -49,6 +53,7 @@ const stripeResponseHandler = function (status, response) {
 
 const hideOrder = function () {
   $('#order').hide()
+  $('#checkout-container').hide()
 }
 
 const setupStripe = function () {
