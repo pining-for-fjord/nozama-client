@@ -11,6 +11,7 @@ const onCreateCartFailure = function (error) {
 }
 
 const onUpdateCartSuccess = function (data) {
+  console.log(data)
 }
 
 const onUpdateCartFailure = function (error) {
@@ -20,7 +21,6 @@ const onUpdateCartFailure = function (error) {
 const cartExport = function () {
   /* Set rates + misc */
 }
-
 
 module.exports = {
   onCreateCartSuccess,

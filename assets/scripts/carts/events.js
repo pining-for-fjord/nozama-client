@@ -35,7 +35,9 @@ const showCart = function () {
   $('#fullCart').show()
 
   /* Assign actions */
-
+  $('.remove-product').on('click', function () {
+    removeItem(this)
+  })
   /* Update quantity */
 }
 /* Recalculate cart */
@@ -93,6 +95,31 @@ const addToCart = function (data) {
     .catch(ui.onUpdateCartFailure)
 }
 
+const removeFromCart = function (id) {
+  for (let i = 0; i < store.cart.products.length; i++) {
+    if (id === store.cart.products[i]._id) {
+      const data = store.cart.products[i]
+      const params = {
+        cart: {
+          totalPrice: data.price,
+          products: [{
+            _id: data._id,
+            sku: data.sku,
+            quantity: 1,
+            name: data.name,
+            price: data.price
+          }]
+        }
+      }
+      store.cart.products.splice(i, 1)
+      store.cart.totalPrice = data.price
+      api.update(params, 'remove')
+        .then(ui.onUpdateCartSuccess)
+        .catch(ui.onUpdateCartFailure)
+    }
+  }
+}
+
 $('.product-quantity input').change(function () {
   updateQuantity(this)
 })
@@ -115,23 +142,23 @@ function updateQuantity (quantityInput)
   })
 }
 
-/* Remove item from cart */
   function removeItem (removeButton)
   {
+    const fadeTime = 300
     /* Remove row from DOM and recalc cart total */
     let productRow = $(removeButton).parent().parent()
+    const id = $(removeButton).parent().parent().attr('id')
     productRow.slideUp(fadeTime, function () {
       productRow.remove()
       recalculateCart()
     })
+
+    removeFromCart(id)
   }
 
 const addHandlers = () => {
   $('.glyphicon-shopping-cart').on('click', showCart)
   $('.glyphicon-shopping-cart').on('click', recalculateCart)
-  $('.product-removal button').on('click', function () {
-    removeItem(this)
-  })
 }
 
 module.exports = {
