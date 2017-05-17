@@ -1,33 +1,17 @@
-
-{{#each products as |product|}}
-  <h1 data-id="{{product.id}}"> <small>Name: {{product.name}}</small></h1>
-  <div>
-    <!-- {{#if product.image}}
-      {{product.image}}
-    {{else}}
-      <img src="http://placehold.it/800x500" alt="" class="image" />
-    {{/if}} -->
-    <!-- {{product.name}} -->
-    <!-- {{product.price}} -->
-    <!-- {{product.description}} -->
-    <!-- {{product.brand}}
-    {{product.category}} -->
-  </div>
-
 {{#each products as |product|}}
 <div class="card-wrapper">
   <div class="card">
   <div class="image-wrapper">
     {{#if product.image}}
-      {{product.image}}
-    {{else}}
+        {{product.image}}
+      {{else}}
       <img src="http://placehold.it/800x500" alt="" class="image" />
-    {{/if}}
+      {{/if}}
   </div>
   <div class="content-wrapper">
     <div class="title">
       <h1 data-id="{{product.id}}"> <small>Name: {{product.name}}</small></h1>
-      <h4>{{product.name}}</h4>
+      {{product.name}}
     </div>
     <div class="price">
       {{product.price}}

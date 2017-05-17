@@ -23,8 +23,32 @@ const hideProduct = function () {
   $('#product').hide()
 }
 
+// js for handlebars for products
+
+// $('#cart').click(flip)
+
+const showList = () => {
+  const vw = $(window).outerWidth()
+  if (vw > 768) {
+    $('.card').hover(
+  function () {
+    $('.description').toggleClass('show')
+    $('.image-wrapper').toggleClass('shrink')
+    flip()
+  })
+  }
+}
+
+function flip () {
+  $('#cart').addClass('flipped')
+  $('#cart').addClass('added')
+  $('.backside').addClass('show')
+  $('.front').addClass('hide')
+}
+
 const addHandlers = () => {
   $('.product-category').on('click', getProducts)
+  $('.product-category').on('click', '.card', showList)
 }
 
 module.exports = {
