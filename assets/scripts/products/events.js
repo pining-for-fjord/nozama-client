@@ -27,8 +27,6 @@ const hideProduct = function () {
 
 // $('#cart').click(flip)
 
-
-
 const addHandlers = () => {
   $('.product-category').on('click', getProducts)
 }

@@ -1,6 +1,7 @@
 'use strict'
 const api = require('./api')
 const ui = require('./ui')
+const cart = require('../store')
 
 const createCart = function () {
   const data = {
@@ -24,6 +25,13 @@ const showCart = function () {
   $('#landing').hide()
 }
 
+const addToCart = function (data) {
+  console.log(data)
+  api.update(data, 'add')
+    .then(ui.onUpdateCartSuccess)
+    .catch(ui.onUpdateCartFailure)
+}
+
 const addHandlers = () => {
   $('.glyphicon-shopping-cart').on('click', showCart)
 }
@@ -31,5 +39,6 @@ const addHandlers = () => {
 module.exports = {
   hideCart,
   addHandlers,
-  createCart
+  createCart,
+  addToCart
 }

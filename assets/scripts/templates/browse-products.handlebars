@@ -10,7 +10,7 @@
   </div>
   <div class="content-wrapper">
     <div class="title">
-      <h1 data-id="{{product.id}}"> <small>Name: {{product.name}}</small></h1>
+      <h1 data-id="{{product._id}}"> <small>Name: {{product.name}}</small></h1>
       {{product.name}}
     </div>
     <div class="price">
@@ -22,10 +22,11 @@
       {{product.category}}
     </div>
     <div class="actions">
-      <button id="cart" class="button flip green-solid cart browse-products">
+      <form id="{{product._id}}">
+      <input id="cart" type="submit" class="button flip green-solid cart browse-products" value="Add to Cart">
         <span class="front">Add to Cart</span>
         <span class="backside">Added</span>
-      </button>
+      </form>
     </div>
   </div>
 </div>
