@@ -15,7 +15,6 @@ const cartExport = function () {
     removeItem(this)
   })
 
-
   /* Recalculate cart */
   function recalculateCart()
   {
