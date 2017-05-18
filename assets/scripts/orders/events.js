@@ -26,16 +26,12 @@ const getOrder = function (orderId) {
 }
 
 const createToken = function (event) {
-  console.log('card is', $('#card-number').val());
-  console.log('exp year is', $('#card-expiry-year').val());
-  console.log('exp month is', $('#card-expiry-month').val());
   event.preventDefault()
   Stripe.card.createToken({
     number: $('#card-number').val(),
     cvc: $('#card-cvc').val(),
     exp_month: $('#card-expiry-month').val(),
     exp_year: $('#card-expiry-year').val()
-
   }, stripeResponseHandler)
 }
 
@@ -46,7 +42,22 @@ const stripeResponseHandler = function (status, response) {
     const token = response.id
     console.log(token)
     store.stripeToken = token
-    ordersApi.create()
+    const order = {
+      order: {
+        shippingAddress: {
+          recipientName: $('input[name=name]').val(),
+          address: $('input[name=address]').val(),
+          city: $('input[name=city]').val(),
+          state: $('input[name=state]').val(),
+          country: $('input[name=country]').val(),
+          zip: $('input[name=zip_code]').val()
+        },
+        totalPrice: store.cart.totalPrice,
+        products: store.cart.products
+      }
+    }
+    console.log('order is', order)
+    ordersApi.create(order, token)
     .then(ordersUi.createOrderSuccess)
     .catch(ordersUi.createOrderFailure)
   }
