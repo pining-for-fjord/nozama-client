@@ -29,7 +29,7 @@ const returnHome = function () {
   $('#checkout-container').hide()
   $('#cart').hide()
   $('#checkout').hide()
-  $('#orders').hide()
+  $('#order').hide()
   $('#landing').show()
   $('.about__section').show()
 }
@@ -40,7 +40,7 @@ const returnHomeButton = function (event) {
   $('#products').hide()
   $('#cart').hide()
   $('#checkout').hide()
-  $('#orders').hide()
+  $('#order').hide()
   $('#landing').show()
   $('.about__section').show()
 }
