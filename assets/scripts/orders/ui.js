@@ -29,11 +29,13 @@ const getOrderFailure = (error) => {
 }
 
 const createOrderSuccess = () => {
-  console.log('created order');
+  console.log('created order')
+  const cartApi = require('../carts/events')
+  cartApi.deleteCart()
 }
 
 const createOrderFailure = (error) => {
-  console.log('uh oh', error);
+  console.log('uh oh', error)
 }
 
 module.exports = {

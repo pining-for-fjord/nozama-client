@@ -27,7 +27,7 @@ const show = (id) => {
   })
 }
 
-const destroy = (id) => {
+const destroy = () => {
   return $.ajax({
     url: config.apiOrigin + '/carts/' + store.cart._id,
     method: 'DELETE',

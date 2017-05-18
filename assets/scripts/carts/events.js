@@ -88,10 +88,11 @@ const addToCart = function (data) {
       }]
     }
   }
+  store.addedItem = data.name
   store.cart.products.push(params.cart.products[0])
   api.update(params, 'add')
-    .then(ui.onUpdateCartSuccess)
-    .catch(ui.onUpdateCartFailure)
+    .then(ui.onAddToCartSuccess)
+    .catch(ui.onAddToCartFailure)
 }
 
 const removeFromCart = function (id) {
@@ -155,8 +156,8 @@ function removeItem (removeButton) {
   removeFromCart(id)
 }
 
-const deleteCart = (id) => {
-  api.destroy(id).then(ui.deleteCartSuccess).catch(ui.deleteCartFailure)
+const deleteCart = () => {
+  api.destroy().then(ui.deleteCartSuccess).catch(ui.deleteCartFailure)
 }
 
 const onGetCart = () => {
