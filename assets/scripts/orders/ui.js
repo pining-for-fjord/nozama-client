@@ -35,7 +35,9 @@ const createOrderSuccess = () => {
   cartApi.deleteCart()
   cartApi.createCart()
   $('#orderPlaced').modal('show')
-  $('input').empty()
+  $('input').val('')
+  $('select').empty()
+  $('#place-order').hide()
 }
 
 const createOrderFailure = (error) => {

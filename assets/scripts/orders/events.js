@@ -74,6 +74,7 @@ const showOrderForm = function () {
   $('#checkout-container').show()
   $('.about__section').hide()
   $('.cart-body').show()
+  $('#place-order').show()
 }
 
 const setupStripe = function () {
