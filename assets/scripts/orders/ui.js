@@ -13,6 +13,7 @@ const getOrdersSuccess = (data) => {
   $('#order').append(showOrdersHTML)
   $('#landing').hide()
   $('#order').show()
+
 }
 
 const getOrdersFailure = (error) => {
