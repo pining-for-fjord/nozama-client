@@ -12,7 +12,7 @@ const onCreateCartFailure = function (error) {
 }
 
 const onUpdateCartSuccess = function (data) {
-  console.log(data.products)
+  console.log(data)
 }
 
 const onAddToCartSuccess = function (data) {
