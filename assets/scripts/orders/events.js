@@ -1,11 +1,9 @@
 'use strict'
 
-
 const ordersApi = require('./api.js')
 const ordersUi = require('./ui.js')
 const store = require('../store.js')
 const prod = require('../products/events')
-
 
 const getOrders = function () {
   ordersApi.index()
@@ -37,6 +35,9 @@ const createToken = function (event) {
 const stripeResponseHandler = function (status, response) {
   if (response.error) {
     console.log(response.error)
+    $('.orderIssue').text(response.error.message)
+    $('#orderError').modal('show')
+    return false
   } else {
     const token = response.id
 
