@@ -27,6 +27,7 @@ const showCart = function (cartData) {
   $('#cart').show()
   $('#landing').hide()
   $('#products').hide()
+  $('.cart-body').hide()
 
   const showProductsHTML = showCartTemplate({
     cart: cartData
@@ -52,7 +53,6 @@ function recalculateCart () {
   $('.product').each(function () {
     subtotal += parseFloat($(this).children('.product-line-price').text())
   })
-
   /* Calculate totals */
   const total = subtotal
 
@@ -88,10 +88,11 @@ const addToCart = function (data) {
       }]
     }
   }
+  store.addedItem = data.name
   store.cart.products.push(params.cart.products[0])
   api.update(params, 'add')
-    .then(ui.onUpdateCartSuccess)
-    .catch(ui.onUpdateCartFailure)
+    .then(ui.onAddToCartSuccess)
+    .catch(ui.onAddToCartFailure)
 }
 
 const removeFromCart = function (id) {
@@ -147,6 +148,7 @@ function removeItem (removeButton) {
   /* Remove row from DOM and recalc cart total */
   const productRow = $(removeButton).parent().parent()
   const id = $(removeButton).parent().parent().attr('id')
+  console.log(id)
   productRow.slideUp(fadeTime, function () {
     productRow.remove()
     recalculateCart()
@@ -155,12 +157,11 @@ function removeItem (removeButton) {
   removeFromCart(id)
 }
 
-const deleteCart = (id) => {
-  api.destroy(id).then(ui.deleteCartSuccess).catch(ui.deleteCartFailure)
+const deleteCart = () => {
+  api.destroy().then(ui.deleteCartSuccess).catch(ui.deleteCartFailure)
 }
 
 const onGetCart = () => {
-  console.log(store.user)
   if (store.user === undefined) {
     $('#notSignedIn').modal('show')
     return false
