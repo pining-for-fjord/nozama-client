@@ -76,6 +76,10 @@ function recalculateCart ()
 }
 
 const addToCart = function (data) {
+  if (!store.user) {
+    $('#addCartSignedOut').modal('show')
+    return
+  }
   const params = {
     cart: {
       totalPrice: data.price,
