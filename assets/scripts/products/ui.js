@@ -15,6 +15,7 @@ const getProductsSuccess = (data) => {
   $('.products').append(showProductsHTML)
   $('#landing').hide()
   $('#products').show()
+  $('.about__section').hide()
   // const vw = $(window).outerWidth()
   // if (vw > 768) {
   //   $('.card').hover(

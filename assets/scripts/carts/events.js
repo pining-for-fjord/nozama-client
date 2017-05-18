@@ -23,6 +23,7 @@ const hideCart = function () {
 }
 
 const showCart = function () {
+  $('.about__section').hide()
   $('#cart').show()
   $('#landing').hide()
   $('#products').hide()

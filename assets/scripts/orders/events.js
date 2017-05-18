@@ -16,6 +16,7 @@ const getOrders = function () {
   $('#products').hide()
   $('#cart').hide()
   $('#checkout-container').hide()
+  $('.about__section').hide()
 }
 
 const getOrder = function (orderId) {
@@ -58,6 +59,7 @@ const hideOrder = function () {
 const showOrderForm = function () {
   $('#cart').hide()
   $('#checkout-container').show()
+  $('.about__section').hide()
 }
 
 const setupStripe = function () {
