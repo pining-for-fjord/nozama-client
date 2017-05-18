@@ -41,6 +41,8 @@ I think having a team made the project much easier.  We didn't have much trouble
 
 I struggled a bit with the back end and express.  Our team, particularly me, had difficulty implementing some back end changes meaning that we could not create the ability to change the quantity of the products in the cart.
 
+I'd like to second what Dee Dee said about peer programming.  I also learned to love peer programming and got a lot out of it, especially following team members doing work in areas I'm less strong in.  I also had a great experience on this project.  Go team Fjord!
+
 -Ryan Ongchoa
   - ADD
 
