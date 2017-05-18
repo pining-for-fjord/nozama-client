@@ -15,7 +15,11 @@ const onUpdateCartSuccess = function (data) {
 }
 
 const onUpdateCartFailure = function (error) {
-  console.log(error)
+  console.log(error.status)
+  if (error.status === 404) {
+    console.log('test')
+    $('#alreadyInCart').modal('show')
+  }
 }
 
 const deleteCartSuccess = function (data) {
