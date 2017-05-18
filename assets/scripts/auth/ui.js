@@ -31,6 +31,12 @@ const signInFailure = () => {
 const signOutSuccess = (data) => {
   $('.sign-in').show()
   $('.sign-out').hide()
+  $('#signOut').modal('show')
+  $('#landing').show()
+  $('#cart').hide()
+  $('#products').hide()
+  $('#checkout-container').hide()
+  $('#orders').hide()
 }
 
 const signOutFailure = () => {
@@ -38,7 +44,6 @@ const signOutFailure = () => {
 }
 
 const chgPswdSuccess = () => {
-  console.log('change password success is happeining');
   $('#change-password').trigger('reset')
   $('#chgPswdSuccess').modal('show')
   $('.sign-out').show()
