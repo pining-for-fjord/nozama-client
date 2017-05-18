@@ -22,7 +22,7 @@ const index = () => {
 
 const show = (id) => {
   return $.ajax({
-    url: config.apiOrigin + '/carts' + id,
+    url: config.apiOrigin + '/carts/' + store.cart._id,
     method: 'GET'
   })
 }

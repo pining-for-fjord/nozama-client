@@ -28,11 +28,19 @@ const deleteCartFailure = function (error) {
   console.log(error)
 }
 
+const onGetCartSuccess = function (data) {
+  const events = require('./events')
+  store.cart = data.cart
+  events.showCart(data.cart)
+  events.recalculateCart()
+}
+
 module.exports = {
   onCreateCartSuccess,
   onCreateCartFailure,
   onUpdateCartSuccess,
   onUpdateCartFailure,
   deleteCartSuccess,
-  deleteCartFailure
+  deleteCartFailure,
+  onGetCartSuccess
 }

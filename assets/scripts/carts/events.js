@@ -22,15 +22,14 @@ const hideCart = function () {
   $('#cart').hide()
 }
 
-const showCart = function () {
+const showCart = function (cartData) {
   $('.about__section').hide()
   $('#cart').show()
   $('#landing').hide()
   $('#products').hide()
 
-
   const showProductsHTML = showCartTemplate({
-    cart: store.cart
+    cart: cartData
   })
   $('.fullCart').empty()
   $('.fullCart').append(showProductsHTML)
@@ -44,8 +43,7 @@ const showCart = function () {
   /* Update quantity */
 }
 /* Recalculate cart */
-function recalculateCart ()
-{
+function recalculateCart () {
   const taxRate = 0.05
   const shippingRate = 0
   const fadeTime = 300
@@ -59,19 +57,19 @@ function recalculateCart ()
   })
 
   /* Calculate totals */
-  let tax = subtotal * taxRate
-  let shipping = (subtotal > 0 ? shippingRate : 0)
-  let total = subtotal + tax + shipping
+  const tax = subtotal * taxRate
+  const shipping = (subtotal > 0 ? shippingRate : 0)
+  const total = subtotal + tax + shipping
 
   /* Update totals display */
-  $('.totals-value').fadeOut(fadeTime, function() {
+  $('.totals-value').fadeOut(fadeTime, function () {
     $('#cart-subtotal').html(subtotal.toFixed(2))
     $('#cart-tax').html(tax.toFixed(2))
     $('#cart-shipping').html(shipping.toFixed(2))
     $('#cart-total').html(total.toFixed(2))
-    if(total == 0){
+    if (total === 0) {
       $('.checkout').fadeOut(fadeTime)
-    }else{
+    } else {
       $('.checkout').fadeIn(fadeTime)
     }
     $('.totals-value').fadeIn(fadeTime)
@@ -131,45 +129,49 @@ $('.product-quantity input').change(function () {
   updateQuantity(this)
 })
 
-function updateQuantity (quantityInput)
-{
-  /* Calculate line price */
-  let productRow = $(quantityInput).parent().parent()
-  let price = parseFloat(productRow.children('.product-price').text())
-  let quantity = $(quantityInput).val()
-  let linePrice = price * quantity
+// function updateQuantity (quantityInput)
+// {
+//   /* Calculate line price */
+//   const productRow = $(quantityInput).parent().parent()
+//   const price = parseFloat(productRow.children('.product-price').text())
+//   const quantity = $(quantityInput).val()
+//   const linePrice = price * quantity
+//
+//   /* Update line price display and recalc cart totals */
+//   productRow.children('.product-line-price').each(function () {
+//     $(this).fadeOut(fadeTime, function() {
+//       $(this).text(linePrice.toFixed(2))
+//       recalculateCart()
+//       $(this).fadeIn(fadeTime)
+//     })
+//   })
+// }
 
-  /* Update line price display and recalc cart totals */
-  productRow.children('.product-line-price').each(function () {
-    $(this).fadeOut(fadeTime, function() {
-      $(this).text(linePrice.toFixed(2))
-      recalculateCart()
-      $(this).fadeIn(fadeTime)
-    })
+function removeItem (removeButton) {
+  const fadeTime = 300
+  /* Remove row from DOM and recalc cart total */
+  const productRow = $(removeButton).parent().parent()
+  const id = $(removeButton).parent().parent().attr('id')
+  productRow.slideUp(fadeTime, function () {
+    productRow.remove()
+    recalculateCart()
   })
+
+  removeFromCart(id)
 }
-
-  function removeItem (removeButton)
-  {
-    const fadeTime = 300
-    /* Remove row from DOM and recalc cart total */
-    let productRow = $(removeButton).parent().parent()
-    const id = $(removeButton).parent().parent().attr('id')
-    productRow.slideUp(fadeTime, function () {
-      productRow.remove()
-      recalculateCart()
-    })
-
-    removeFromCart(id)
-  }
 
 const deleteCart = (id) => {
   api.destroy(id).then(ui.deleteCartSuccess).catch(ui.deleteCartFailure)
 }
 
+const onGetCart = () => {
+  api.show().then(ui.onGetCartSuccess).catch(ui.onGetCartFailure)
+}
+
 const addHandlers = () => {
-  $('.glyphicon-shopping-cart').on('click', showCart)
-  $('.glyphicon-shopping-cart').on('click', recalculateCart)
+  // $('.glyphicon-shopping-cart').on('click', showCart)
+  // $('.glyphicon-shopping-cart').on('click', recalculateCart)
+  $('.glyphicon-shopping-cart').on('click', onGetCart)
 }
 
 module.exports = {
@@ -177,5 +179,7 @@ module.exports = {
   addHandlers,
   createCart,
   addToCart,
-  deleteCart
+  deleteCart,
+  showCart,
+  recalculateCart
 }
