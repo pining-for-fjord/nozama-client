@@ -55,6 +55,10 @@ const hideOrder = function () {
   $('#order').hide()
   $('#checkout-container').hide()
 }
+const showOrderForm = function () {
+  $('#cart').hide()
+  $('#checkout-container').show()
+}
 
 const setupStripe = function () {
   Stripe.setPublishableKey('pk_test_9WemBaMhQokjQEfkfAQiLXmr')
@@ -67,6 +71,8 @@ const setupStripe = function () {
 const addHandlers = () => {
   $('#order-button').on('click', getOrders)
   $('#place-order').on('click', createToken)
+  $('#checkout-button').on('click', showOrderForm)
+
 }
 
 module.exports = {

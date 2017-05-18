@@ -25,6 +25,8 @@ const hideCart = function () {
 const showCart = function () {
   $('#cart').show()
   $('#landing').hide()
+  $('#products').hide()
+
 
   const showProductsHTML = showCartTemplate({
     cart: store.cart
