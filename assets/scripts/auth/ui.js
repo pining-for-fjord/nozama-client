@@ -7,8 +7,9 @@ const store = require('../store')
 const signUpSuccess = () => {
   $('#sign-up').trigger('reset')
 }
-const signUpFailure = () => {
+const signUpFailure = (error) => {
   $('#sign-up').trigger('reset')
+  console.log(error)
 }
 const signInSuccess = (data) => {
 //  console.log('signin success ran data is ', data)
@@ -37,6 +38,7 @@ const signOutSuccess = (data) => {
   $('#products').hide()
   $('#checkout-container').hide()
   $('#orders').hide()
+  store.user = {}
 }
 
 const signOutFailure = () => {
@@ -48,6 +50,7 @@ const chgPswdSuccess = () => {
   $('#chgPswdSuccess').modal('show')
   $('.sign-out').show()
   $('.change-password').hide()
+  console.log(store.user)
 }
 
 const chgPswdFailure = () => {

@@ -17,6 +17,7 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
+  console.log(data)
   userApi.signIn(data)
     .then(userUi.signInSuccess)
     .catch(userUi.signInFailure)
@@ -35,7 +36,7 @@ const onSignOut = function (event) {
 const onChgPswd = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-//  console.log('changed password')
+  console.log(data)
   userApi.chgPswd(data)
     .then(userUi.chgPswdSuccess)
     .catch(userUi.chgPswdFailure)
@@ -56,7 +57,7 @@ const linkSignIn = function () {
 }
 
 const linkChangePassword = function () {
-  // $('.sign-out').hide()
+  $('.sign-out').hide()
   $('.change-password').show()
   $('.dropdown-menu').click(stopPropagation)
 }
