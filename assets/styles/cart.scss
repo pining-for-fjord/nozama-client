@@ -1,7 +1,4 @@
-.product-image {
-  float: left;
-  width: 20%;
-}
+
 
 .product-details {
   float: left;
@@ -11,11 +8,6 @@
 .product-price {
   float: left;
   width: 12%;
-}
-
-.product-quantity {
-  float: left;
-  width: 10%;
 }
 
 .product-removal {
@@ -106,7 +98,7 @@ label {
 .product .product-quantity input {
   width: 40px;
 }
-.product .remove-product {
+.remove-product {
   border: 0;
   padding: 4px 8px;
   background-color: #c66;
@@ -115,7 +107,7 @@ label {
   font-size: 12px;
   border-radius: 3px;
 }
-.product .remove-product:hover {
+.remove-product:hover {
   background-color: #a44;
 }
 
@@ -137,9 +129,9 @@ label {
   width: 21%;
   text-align: right;
 }
-.totals .totals-item-total {
-  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
-}
+// .totals .totals-item-total {
+//   font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+// }
 
 .checkout {
   float: right;
