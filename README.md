@@ -7,6 +7,12 @@ An ecommerce site specializing in all the things people want:
   -Books
   -Women's Apparel
   -Meat
+
+The site has user authentication and four products pages for each type of product.  Upon sign in, a user gets an empty cart created.  They can add and remove any items from the cart and proceed to a checkout form.  The checkout form has error handling for unfilled fields, bad credit cards, etc.  Once an order is submitted, the cart for that order is deleted and a new one is created.  So the carts are unique to each order and a user can never have more than one active.
+
+The UI was built using bootstrap and the products were displayed on the page using Handlebars.  In addition, the item profiles and the shopping cart are based on templates from codepen io.
+
+TEAM FJORD - can we add to this?
 # Contributors:
   -Deirdre Forte
   -Jon Cohen
