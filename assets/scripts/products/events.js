@@ -1,11 +1,9 @@
 'use strict'
 
-// const setAPIOrigin = require('../../lib/set-api-origin')
-// const config = require('../config')
+
 const prodApi = require('./api.js')
 const prodUi = require('./ui.js')
-// const getFormFields = require('../../lib/get-form-fields')
-// console.log('up and runnning yarn events')
+
 
 const getProducts = function (event) {
   const category = $(this).attr('id')
@@ -29,7 +27,7 @@ const returnHome = function () {
   $('#checkout-container').hide()
   $('#cart').hide()
   $('#checkout').hide()
-  $('#orders').hide()
+  $('#order').hide()
   $('#landing').show()
   $('.about__section').show()
 }
@@ -40,7 +38,7 @@ const returnHomeButton = function (event) {
   $('#products').hide()
   $('#cart').hide()
   $('#checkout').hide()
-  $('#orders').hide()
+  $('#order').hide()
   $('#landing').show()
   $('.about__section').show()
 }

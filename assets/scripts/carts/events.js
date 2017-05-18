@@ -28,6 +28,7 @@ const showCart = function (cartData) {
   $('#landing').hide()
   $('#products').hide()
   $('.cart-body').hide()
+  $('#order').hide()
 
   const showProductsHTML = showCartTemplate({
     cart: cartData
@@ -148,7 +149,6 @@ function removeItem (removeButton) {
   /* Remove row from DOM and recalc cart total */
   const productRow = $(removeButton).parent().parent()
   const id = $(removeButton).parent().parent().attr('id')
-  console.log(id)
   productRow.slideUp(fadeTime, function () {
     productRow.remove()
     recalculateCart()

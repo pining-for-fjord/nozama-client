@@ -3,9 +3,7 @@ const store = require('../store')
 const showOrdersTemplate = require('../templates/order-history.handlebars')
 
 const getOrdersSuccess = (data) => {
-  console.log(data)
   store.orders = data.orders
-  console.log(data.orders)
   const showOrdersHTML = showOrdersTemplate({
     orders: data.orders
   })
@@ -13,11 +11,10 @@ const getOrdersSuccess = (data) => {
   $('#order').append(showOrdersHTML)
   $('#landing').hide()
   $('#order').show()
-
 }
 
 const getOrdersFailure = (error) => {
-  console.log('read bombed')
+  console.log(error)
 }
 
 const getOrderSuccess = (data) => {
@@ -25,23 +22,22 @@ const getOrderSuccess = (data) => {
 }
 
 const getOrderFailure = (error) => {
-  console.log('read bombed')
   console.log(error)
 }
 
 const createOrderSuccess = () => {
-  console.log('created order')
   const cartApi = require('../carts/events')
   cartApi.deleteCart()
   cartApi.createCart()
   $('#orderPlaced').modal('show')
   $('input').val('')
-  $('select').empty()
+  $('#card-expiry-month').val('Month')
+  $('#card-expiry-year').val('Year')
   $('#place-order').hide()
 }
 
 const createOrderFailure = (error) => {
-  console.log('uh oh', error)
+  console.log(error)
 }
 
 module.exports = {

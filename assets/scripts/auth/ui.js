@@ -11,7 +11,6 @@ const signUpFailure = () => {
   $('#sign-up').trigger('reset')
 }
 const signInSuccess = (data) => {
-//  console.log('signin success ran data is ', data)
   store.user = data.user
   $('#sign-in').trigger('reset')
   $('.sign-in').hide()

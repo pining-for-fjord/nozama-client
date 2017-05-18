@@ -31,7 +31,8 @@ What went well and what could have gone better:
 -Deirdre Forte
   - ADD
 -Jon Cohen
-  - ADD
+  - I think having a team made the project much easier.  We didn't have much trouble with merge conflicts and were able to stay on top of what everyone was doing.  In addition, the team's varied skillsets made the product better.  I'm very happy with the UI, which is not really my strength, and the back end.  When it came to API work I felt more comfortable and our team's individual strengths complemented each other.
+  - I struggled a bit with the back end and express.  Our team, particularly me, had difficulty implementing some back end changes meaning that we could not create the ability to change the quantity of the products in the cart.
 -Ryan Ongchoa
   - ADD
 -Alan Henderson

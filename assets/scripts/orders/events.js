@@ -1,13 +1,11 @@
 'use strict'
 
-// const setAPIOrigin = require('../../lib/set-api-origin')
-// const config = require('../config')
+
 const ordersApi = require('./api.js')
 const ordersUi = require('./ui.js')
 const store = require('../store.js')
 const prod = require('../products/events')
-// const getFormFields = require('../../lib/get-form-fields')
-// console.log('up and runnning yarn events')
+
 
 const getOrders = function () {
   ordersApi.index()
@@ -41,9 +39,9 @@ const stripeResponseHandler = function (status, response) {
     console.log(response.error)
   } else {
     const token = response.id
-    console.log(token)
+
     store.stripeToken = token
-    console.log('totalPrice for order is', store.cart.totalPrice)
+
     const order = {
       order: {
         shippingAddress: {
@@ -58,7 +56,6 @@ const stripeResponseHandler = function (status, response) {
         products: store.cart.products
       }
     }
-    console.log('order is', order)
     ordersApi.create(order, token)
     .then(ordersUi.createOrderSuccess)
     .catch(ordersUi.createOrderFailure)
