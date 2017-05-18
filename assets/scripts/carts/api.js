@@ -13,17 +13,13 @@ const create = (data) => {
   })
 }
 
-const index = () => {
-  return $.ajax({
-    url: config.apiOrigin + '/carts',
-    method: 'GET'
-  })
-}
-
 const show = (id) => {
   return $.ajax({
     url: config.apiOrigin + '/carts/' + store.cart._id,
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -50,7 +46,6 @@ const update = (data, action) => {
 }
 
 module.exports = {
-  index,
   show,
   update,
   destroy,
