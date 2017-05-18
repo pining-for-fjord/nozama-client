@@ -1,7 +1,8 @@
 {{#each orders as |order|}}
-  <h1 data-id="{{order.id}}"> <small>Date: {{date order.createdAt}}</small></h1>
-  <div>
+<div class="order-history">
+  <h3 data-id="{{order.id}}"> <small>Order date: {{date order.createdAt}}</small></h3>
      <div class="order-shipping">
+        <h5>Shipped to:</h5>
         <div class="order-recipient">
           {{order.shippingAddress.recipientName}}
         </div>
@@ -14,17 +15,18 @@
           {{order.shippingAddress.zip}}
         </div>
         <div class="order-country">
-          {{order.shippingAddress.country}}
+          {{order.shippingAddress.country}}<br/>
         </div>
     </div>
     <div class="order-price">
-      {{decimal order.totalPrice}}
+      <h5 <small>Total price: ${{decimal order.totalPrice}}</small></h5></br>
     </div>
     <div class="order-products">
+      <h5>Products:</h5>
       {{#order.products}}
         {{quantity}}
         {{name}}
-        {{decimal price}}</br>
+        <h4><small>${{decimal price}}</small></h4></br>
       {{/order.products}}
     </div>
   </div>
