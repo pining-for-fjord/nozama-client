@@ -7,6 +7,12 @@ An ecommerce site specializing in all the things people want:
   -Books
   -Women's Apparel
   -Meat
+
+The site has user authentication and four products pages for each type of product.  Upon sign in, a user gets an empty cart created.  They can add and remove any items from the cart and proceed to a checkout form.  The checkout form has error handling for unfilled fields, bad credit cards, etc.  Once an order is submitted, the cart for that order is deleted and a new one is created.  So the carts are unique to each order and a user can never have more than one active.
+
+The UI was built using bootstrap and the products were displayed on the page using Handlebars.  In addition, the item profiles and the shopping cart are based on templates from codepen io.
+
+TEAM FJORD - can we add to this?
 # Contributors:
   -Deirdre Forte
   -Jon Cohen
@@ -22,18 +28,30 @@ An ecommerce site specializing in all the things people want:
   - Deployed: https://salty-journey-97556.herokuapp.com/sign-in
 
 # Design
-- User Stories ADD
-- ERD ADD
-- Schema ADD
+- ERD, Schema and User Stories https://git.generalassemb.ly/ga-wdi-boston/team-project/files/44/ERD.USER.docx
+- Wireframes:
+Landing - https://git.generalassemb.ly/storage/user/5717/files/e28eb522-3980-11e7-885b-d57e27d4f867
+Landing to Show Products - https://git.generalassemb.ly/storage/user/5717/files/86be3e32-3982-11e7-93c5-7ffd0d4c0fdd
+Landing Show Products to Cart - https://git.generalassemb.ly/storage/user/5717/files/dd38e0fc-3980-11e7-826b-ab57ed755eaf
+Cart to Orders - https://git.generalassemb.ly/storage/user/5717/files/e5ed8b58-3980-11e7-9666-b9998ce28f66
+Orders to Order History - https://git.generalassemb.ly/storage/user/5717/files/83426710-3982-11e7-8773-5de649ed7105
 
 # Reflections and Lessons Learned
 What went well and what could have gone better:
--Deirdre Forte
-  - ADD
--Jon Cohen: I think having a team made the project much easier.  We didn't have much trouble with merge conflicts and were able to stay on top of what everyone was doing.  In addition, the team's varied skillsets made the product better.  I'm very happy with the UI, which is not really my strength, and the back end.  When it came to API work I felt more comfortable and our team's individual strengths complemented each other.
-  I struggled a bit with the back end and express.  Our team, particularly me, had difficulty implementing some back end changes meaning that we could not create the ability to change the quantity of the products in the cart.
+
+-Deirdre Forte:
+This was a great team experience. Overall, the lesson learned over and over again is the importance of planning.  Two of my main concerns was the how four contributors would be able to "git push" without merge conflicts and the complexity of having three collections in addition to users.  Establishing a good git procedure and comprehensive ERD these were never issues.  I also learned the value of peer programming.   I peer programmed with each team member.  In addition to learning new coding skills from each, it also made it easier to understand other's code.  My team members rock!
+
+-Jon Cohen:
+I think having a team made the project much easier.  We didn't have much trouble with merge conflicts and were able to stay on top of what everyone was doing.  In addition, the team's varied skillsets made the product better.  I'm very happy with the UI, which is not really my strength, and the back end.  When it came to API work I felt more comfortable and our team's individual strengths complemented each other.
+
+I struggled a bit with the back end and express.  Our team, particularly me, had difficulty implementing some back end changes meaning that we could not create the ability to change the quantity of the products in the cart.
+
+I'd like to second what Dee Dee said about peer programming.  I also learned to love peer programming and got a lot out of it, especially following team members doing work in areas I'm less strong in.  I also had a great experience on this project.  Go team Fjord!
+
 -Ryan Ongchoa
   - ADD
+
 -Alan Henderson
   - ADD
 
