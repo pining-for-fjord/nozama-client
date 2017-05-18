@@ -34,6 +34,7 @@ const createOrderSuccess = () => {
   $('#card-expiry-month').val('Month')
   $('#card-expiry-year').val('Year')
   $('#place-order').hide()
+  console.log(store.cart)
 }
 
 const createOrderFailure = () => {
