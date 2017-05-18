@@ -39,7 +39,6 @@ const showCart = function (cartData) {
   /* Assign actions */
   $('.remove-product').on('click', function () {
     removeItem(this)
-    updatePrice(cartData.totalPrice)
   })
   /* Update quantity */
 }
@@ -77,13 +76,6 @@ function recalculateCart () {
   })
 
   console.log(total)
-  updatePrice(total)
-}
-
-const updatePrice = (totalPrice) => {
-  store.cart.totalPrice = totalPrice
-  console.log(store.cart)
-  api.update(store.cart, 'updatePrice')
 }
 
 const addToCart = function (data) {
@@ -91,9 +83,11 @@ const addToCart = function (data) {
     $('#addCartSignedOut').modal('show')
     return
   }
+  const newTotalPrice = store.cart.totalPrice += data.price
+  store.cart.totalPrice = newTotalPrice
   const params = {
     cart: {
-      totalPrice: data.price,
+      totalPrice: newTotalPrice,
       products: [{
         _id: data._id,
         sku: data.sku,
@@ -104,7 +98,6 @@ const addToCart = function (data) {
     }
   }
   store.cart.products.push(params.cart.products[0])
-  store.cart.totalPrice = data.price
   api.update(params, 'add')
     .then(ui.onUpdateCartSuccess)
     .catch(ui.onUpdateCartFailure)
