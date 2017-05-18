@@ -149,7 +149,6 @@ function removeItem (removeButton) {
   /* Remove row from DOM and recalc cart total */
   const productRow = $(removeButton).parent().parent()
   const id = $(removeButton).parent().parent().attr('id')
-  console.log(id)
   productRow.slideUp(fadeTime, function () {
     productRow.remove()
     recalculateCart()
