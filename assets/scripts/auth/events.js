@@ -4,6 +4,7 @@
 const userApi = require('./api.js')
 const userUi = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields')
+const store = require('../store')
 // console.log('up and runnning user events')
 
 const onSignUp = function (event) {
@@ -22,6 +23,9 @@ const onSignIn = function (event) {
 }
 const onSignOut = function (event) {
   event.preventDefault()
+  const cartEvents = require('../carts/events')
+  const id = store.cart._id
+  cartEvents.deleteCart(id)
 //  console.log('sign out ran')
   userApi.signOut()
     .then(userUi.signOutSuccess)

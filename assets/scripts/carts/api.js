@@ -29,7 +29,7 @@ const show = (id) => {
 
 const destroy = (id) => {
   return $.ajax({
-    url: config.apiOrigin + '/carts/' + id,
+    url: config.apiOrigin + '/carts/' + store.cart._id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token

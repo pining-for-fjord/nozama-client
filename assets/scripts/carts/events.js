@@ -156,6 +156,10 @@ function updateQuantity (quantityInput)
     removeFromCart(id)
   }
 
+const deleteCart = (id) => {
+  api.destroy(id).then(ui.deleteCartSuccess).catch(ui.deleteCartFailure)
+}
+
 const addHandlers = () => {
   $('.glyphicon-shopping-cart').on('click', showCart)
   $('.glyphicon-shopping-cart').on('click', recalculateCart)
@@ -165,5 +169,6 @@ module.exports = {
   hideCart,
   addHandlers,
   createCart,
-  addToCart
+  addToCart,
+  deleteCart
 }
