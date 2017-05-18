@@ -27,6 +27,7 @@ const showCart = function (cartData) {
   $('#cart').show()
   $('#landing').hide()
   $('#products').hide()
+  $('.cart-body').hide()
 
   const showProductsHTML = showCartTemplate({
     cart: cartData
@@ -161,7 +162,6 @@ const deleteCart = () => {
 }
 
 const onGetCart = () => {
-  console.log(store.user)
   if (store.user === undefined) {
     $('#notSignedIn').modal('show')
     return false
