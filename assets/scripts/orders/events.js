@@ -42,6 +42,7 @@ const stripeResponseHandler = function (status, response) {
     const token = response.id
     console.log(token)
     store.stripeToken = token
+    console.log('totalPrice for order is', store.cart.totalPrice);
     const order = {
       order: {
         shippingAddress: {
@@ -52,7 +53,7 @@ const stripeResponseHandler = function (status, response) {
           country: $('input[name=country]').val(),
           zip: $('input[name=zip_code]').val()
         },
-        totalPrice: store.cart.totalPrice,
+        totalPrice: parseInt(store.cart.totalPrice, 10),
         products: store.cart.products
       }
     }

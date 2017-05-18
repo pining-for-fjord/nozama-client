@@ -44,8 +44,6 @@ const showCart = function (cartData) {
 }
 /* Recalculate cart */
 function recalculateCart () {
-  const taxRate = 0.05
-  const shippingRate = 0
   const fadeTime = 300
 
   console.log('stuff happening')
@@ -57,15 +55,11 @@ function recalculateCart () {
   })
 
   /* Calculate totals */
-  const tax = subtotal * taxRate
-  const shipping = (subtotal > 0 ? shippingRate : 0)
-  const total = subtotal + tax + shipping
+  const total = subtotal
 
   /* Update totals display */
   $('.totals-value').fadeOut(fadeTime, function () {
     $('#cart-subtotal').html(subtotal.toFixed(2))
-    $('#cart-tax').html(tax.toFixed(2))
-    $('#cart-shipping').html(shipping.toFixed(2))
     $('#cart-total').html(total.toFixed(2))
     if (total === 0) {
       $('.checkout').fadeOut(fadeTime)
@@ -107,9 +101,11 @@ const removeFromCart = function (id) {
   for (let i = 0; i < store.cart.products.length; i++) {
     if (id === store.cart.products[i]._id) {
       const data = store.cart.products[i]
+      const newTotalPrice = store.cart.totalPrice -= data.price
+      store.cart.totalPrice = newTotalPrice
       const params = {
         cart: {
-          totalPrice: data.price,
+          totalPrice: newTotalPrice,
           products: [{
             _id: data._id,
             sku: data.sku,
@@ -120,7 +116,6 @@ const removeFromCart = function (id) {
         }
       }
       store.cart.products.splice(i, 1)
-      store.cart.totalPrice = data.price
       api.update(params, 'remove')
         .then(ui.onUpdateCartSuccess)
         .catch(ui.onUpdateCartFailure)

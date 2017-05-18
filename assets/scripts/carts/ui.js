@@ -35,6 +35,9 @@ const deleteCartFailure = function (error) {
 const onGetCartSuccess = function (data) {
   const events = require('./events')
   store.cart = data.cart
+  console.log(data.cart);
+  console.log(store.cart);
+  console.log('price of cart after get', store.cart.totalPrice);
   events.showCart(data.cart)
   events.recalculateCart()
 }
