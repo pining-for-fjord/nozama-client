@@ -1,9 +1,13 @@
 'use strict'
 const store = require('../store')
 const showProductsTemplate = require('../templates/browse-products.handlebars')
+const products = require('./products')
+const cartsEvents = require('../carts/events')
 
 const getProductsSuccess = (data) => {
   store.data = data
+  console.log(store.data)
+  products.products = store.data
   const showProductsHTML = showProductsTemplate({
     products: data.products
   })
@@ -19,6 +23,12 @@ const getProductsSuccess = (data) => {
     $('.image-wrapper').toggleClass('shrink')
     flip()
   })
+  }
+  for (let i = 0; i < products.products.products.length; i++) {
+    $('#' + products.products.products[i]._id).on('click', function () {
+      event.preventDefault()
+      cartsEvents.addToCart(products.products.products[i])
+    })
   }
 }
 

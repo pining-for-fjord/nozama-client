@@ -7,8 +7,9 @@ const prodUi = require('./ui.js')
 // const getFormFields = require('../../lib/get-form-fields')
 // console.log('up and runnning yarn events')
 
-const getProducts = function () {
-  prodApi.index()
+const getProducts = function (event) {
+  const category = $(this).attr('id')
+  prodApi.index(category)
   .then(prodUi.getProductsSuccess)
   .catch(prodUi.getProductsFailure)
 }
@@ -26,8 +27,6 @@ const hideProduct = function () {
 // js for handlebars for products
 
 // $('#cart').click(flip)
-
-
 
 const addHandlers = () => {
   $('.product-category').on('click', getProducts)

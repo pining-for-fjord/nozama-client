@@ -1,0 +1,18 @@
+{{#each orders as |order|}}
+  <h1 data-id="{{order.id}}"> <small>Date: {{order.createdAt}}</small></h1>
+  <div>
+    {{order.shippingAddress.recipientName}}
+    {{order.shippingAddress.address}}
+    {{order.shippingAddress.city}}
+    {{order.shippingAddress.state}}
+    {{order.shippingAddress.country}}
+    {{order.shippingAddress.zip}}
+    {{order.paymentDetails.totalPrice}}
+    {{#order.products}}
+      {{name}}
+      {{price}}
+      {{quantity}}
+    {{/order.products}}
+  </div>
+
+{{/each}}
