@@ -26,12 +26,16 @@ const getOrderSuccess = (data) => {
 
 const getOrderFailure = (error) => {
   console.log('read bombed')
+  console.log(error)
 }
 
 const createOrderSuccess = () => {
   console.log('created order')
   const cartApi = require('../carts/events')
   cartApi.deleteCart()
+  cartApi.createCart()
+  $('#orderPlaced').modal('show')
+  $('input').empty()
 }
 
 const createOrderFailure = (error) => {

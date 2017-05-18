@@ -26,12 +26,25 @@ const hideProduct = function () {
 
 const returnHome = function () {
   $('#products').hide()
+  $('#checkout-container').hide()
   $('#cart').hide()
   $('#checkout').hide()
   $('#orders').hide()
   $('#landing').show()
   $('.about__section').show()
 }
+
+const returnHomeButton = function (event) {
+  event.preventDefault()
+  $('#checkout-container').hide()
+  $('#products').hide()
+  $('#cart').hide()
+  $('#checkout').hide()
+  $('#orders').hide()
+  $('#landing').show()
+  $('.about__section').show()
+}
+
 // js for handlebars for products
 
 // $('#cart').click(flip)
@@ -46,5 +59,6 @@ module.exports = {
   getProducts,
   getProduct,
   hideProduct,
-  addHandlers
+  addHandlers,
+  returnHomeButton
 }

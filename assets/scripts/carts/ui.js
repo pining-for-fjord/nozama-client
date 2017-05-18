@@ -4,6 +4,7 @@ const store = require('../store')
 const onCreateCartSuccess = function (data) {
   store.cart = data.cart
   console.log(store.cart)
+  console.log('cart created!')
 }
 
 const onCreateCartFailure = function (error) {
@@ -29,7 +30,6 @@ const onUpdateCartFailure = function (error) {
 }
 
 const deleteCartSuccess = function (data) {
-  store.user = null
   store.cart = null
   console.log('cart deleted')
 }

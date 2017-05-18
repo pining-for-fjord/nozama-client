@@ -5,6 +5,7 @@
 const ordersApi = require('./api.js')
 const ordersUi = require('./ui.js')
 const store = require('../store.js')
+const prod = require('../products/events')
 // const getFormFields = require('../../lib/get-form-fields')
 // console.log('up and runnning yarn events')
 
@@ -42,7 +43,7 @@ const stripeResponseHandler = function (status, response) {
     const token = response.id
     console.log(token)
     store.stripeToken = token
-    console.log('totalPrice for order is', store.cart.totalPrice);
+    console.log('totalPrice for order is', store.cart.totalPrice)
     const order = {
       order: {
         shippingAddress: {
@@ -86,7 +87,7 @@ const addHandlers = () => {
   $('#order-button').on('click', getOrders)
   $('#place-order').on('click', createToken)
   $('#checkout-button').on('click', showOrderForm)
-
+  $('#shop-again').on('click', prod.returnHomeButton)
 }
 
 module.exports = {
