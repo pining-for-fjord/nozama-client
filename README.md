@@ -1,10 +1,41 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# browser-template
+# Nozama-Client
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+An ecommerce site specializing in all the things people want:
+  -Men's luxury watches
+  -Books
+  -Women's Apparel
+  -Meat
+# Contributors:
+  -Deirdre Forte
+  -Jon Cohen
+  -Ryan Ongchoa
+  -Alan Henderson
+
+# URLs
+- Client
+  - Repo: https://github.com/pining-for-fjord/nozama-client
+  - Deployed: https://pining-for-fjord.github.io/nozama-client/
+- Backend (API)
+  - Repo: https://github.com/pining-for-fjord/nozama-api
+  - Deployed: https://salty-journey-97556.herokuapp.com/sign-in
+
+# Design
+- User Stories ADD
+- ERD ADD
+- Schema ADD
+
+# Reflections and Lessons Learned
+What went well and what could have gone better:
+-Deirdre Forte
+  - ADD
+-Jon Cohen
+  - ADD
+-Ryan Ongchoa
+  - ADD
+-Alan Henderson
+  - ADD
 
 ## Dependencies
 
@@ -13,19 +44,11 @@ Install with `npm install`.
 -   [Webpack](https://webpack.github.io)
 -   [Bootstrap](http://getbootstrap.com)
 -   [Handlebars.js](http://handlebarsjs.com)
+-   [Stripe.js](http://stripe.com)
 
-At the beginning of each cohort, update the versions in
-[`package.json`](package.json) by replace all versions with a glob (`*`) and
-running `npm update --save && npm update --save-dev`. You may wish to test these
-changes by deleting the `node_modules` directory and running `npm install`.
-Fix any conflicts.
 
 ## Installation
 
-1.  [Download](../../archive/master.zip) this template.
-1.  Unzip and rename the template directory.
-1.  Empty [`README.md`](README.md) and fill with your own content.
-1.  Move into the new project and `git init`.
 1.  Install dependencies with `npm install`.
 
 ## Structure
