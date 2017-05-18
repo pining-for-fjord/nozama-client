@@ -83,6 +83,7 @@ function recalculateCart () {
 const updatePrice = (totalPrice) => {
   store.cart.totalPrice = totalPrice
   console.log(store.cart)
+  api.update(store.cart, 'updatePrice')
 }
 
 const addToCart = function (data) {
