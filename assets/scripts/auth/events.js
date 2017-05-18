@@ -56,7 +56,7 @@ const linkSignIn = function () {
 }
 
 const linkChangePassword = function () {
-  $('.sign-out').hide()
+  // $('.sign-out').hide()
   $('.change-password').show()
   $('.dropdown-menu').click(stopPropagation)
 }
