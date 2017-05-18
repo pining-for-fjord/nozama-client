@@ -2,22 +2,21 @@
 
 const cartExport = function () {
   /* Set rates + misc */
-  let taxRate = 0.05
-  let shippingRate = 0
-  let fadeTime = 300
+  const taxRate = 0.05
+  const shippingRate = 0
+  const fadeTime = 300
 
   /* Assign actions */
-  $('.product-quantity input').change( function() {
+  $('.product-quantity input').change(function () {
     updateQuantity(this)
   })
 
-  $('.product-removal button').click( function() {
+  $('.product-removal button').click(function () {
     removeItem(this)
   })
 
   /* Recalculate cart */
-  function recalculateCart()
-  {
+  function recalculateCart () {
     let subtotal = 0
 
     /* Sum up row totals */
@@ -26,38 +25,36 @@ const cartExport = function () {
     })
 
     /* Calculate totals */
-    let tax = subtotal * taxRate
-    let shipping = (subtotal > 0 ? shippingRate : 0)
-    let total = subtotal + tax + shipping
+    const tax = subtotal * taxRate
+    const shipping = (subtotal > 0 ? shippingRate : 0)
+    const total = subtotal + tax + shipping
 
     /* Update totals display */
-    $('.totals-value').fadeOut(fadeTime, function() {
+    $('.totals-value').fadeOut(fadeTime, function () {
       $('#cart-subtotal').html(subtotal.toFixed(2))
       $('#cart-tax').html(tax.toFixed(2))
       $('#cart-shipping').html(shipping.toFixed(2))
       $('#cart-total').html(total.toFixed(2))
-      if(total == 0){
+      if (total === 0) {
         $('.checkout').fadeOut(fadeTime)
-      }else{
+      } else {
         $('.checkout').fadeIn(fadeTime)
       }
       $('.totals-value').fadeIn(fadeTime)
     })
   }
 
-
   /* Update quantity */
-  function updateQuantity(quantityInput)
-  {
+  function updateQuantity (quantityInput) {
     /* Calculate line price */
-    let productRow = $(quantityInput).parent().parent()
-    let price = parseFloat(productRow.children('.product-price').text())
-    let quantity = $(quantityInput).val()
-    let linePrice = price * quantity
+    const productRow = $(quantityInput).parent().parent()
+    const price = parseFloat(productRow.children('.product-price').text())
+    const quantity = $(quantityInput).val()
+    const linePrice = price * quantity
 
     /* Update line price display and recalc cart totals */
     productRow.children('.product-line-price').each(function () {
-      $(this).fadeOut(fadeTime, function() {
+      $(this).fadeOut(fadeTime, function () {
         $(this).text(linePrice.toFixed(2))
         recalculateCart()
         $(this).fadeIn(fadeTime)
@@ -66,10 +63,9 @@ const cartExport = function () {
   }
 
   /* Remove item from cart */
-  function removeItem(removeButton)
-  {
+  function removeItem (removeButton) {
     /* Remove row from DOM and recalc cart total */
-    let productRow = $(removeButton).parent().parent()
+    const productRow = $(removeButton).parent().parent()
     productRow.slideUp(fadeTime, function() {
       productRow.remove()
       recalculateCart()

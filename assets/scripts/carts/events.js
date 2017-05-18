@@ -139,23 +139,23 @@ $('.product-quantity input').change(function () {
   updateQuantity(this)
 })
 
-// function updateQuantity (quantityInput)
-// {
-//   /* Calculate line price */
-//   const productRow = $(quantityInput).parent().parent()
-//   const price = parseFloat(productRow.children('.product-price').text())
-//   const quantity = $(quantityInput).val()
-//   const linePrice = price * quantity
-//
-//   /* Update line price display and recalc cart totals */
-//   productRow.children('.product-line-price').each(function () {
-//     $(this).fadeOut(fadeTime, function() {
-//       $(this).text(linePrice.toFixed(2))
-//       recalculateCart()
-//       $(this).fadeIn(fadeTime)
-//     })
-//   })
-// }
+function updateQuantity (quantityInput) {
+  /* Calculate line price */
+  const productRow = $(quantityInput).parent().parent()
+  const price = parseFloat(productRow.children('.product-price').text())
+  const quantity = $(quantityInput).val()
+  const linePrice = price * quantity
+  const fadeTime = 300
+
+  /* Update line price display and recalc cart totals */
+  productRow.children('.product-line-price').each(function () {
+    $(this).fadeOut(fadeTime, function () {
+      $(this).text(linePrice.toFixed(2))
+      recalculateCart()
+      $(this).fadeIn(fadeTime)
+    })
+  })
+}
 
 function removeItem (removeButton) {
   const fadeTime = 300
