@@ -22,9 +22,13 @@ An ecommerce site specializing in all the things people want:
   - Deployed: https://salty-journey-97556.herokuapp.com/sign-in
 
 # Design
-- User Stories ADD
-- ERD ADD
-- Schema ADD
+- ERD, Schema and User Stories https://git.generalassemb.ly/ga-wdi-boston/team-project/files/44/ERD.USER.docx
+- Wireframes:
+Landing - https://git.generalassemb.ly/storage/user/5717/files/e28eb522-3980-11e7-885b-d57e27d4f867
+Landing to Show Products - https://git.generalassemb.ly/storage/user/5717/files/86be3e32-3982-11e7-93c5-7ffd0d4c0fdd
+Landing Show Products to Cart - https://git.generalassemb.ly/storage/user/5717/files/dd38e0fc-3980-11e7-826b-ab57ed755eaf
+Cart to Orders - https://git.generalassemb.ly/storage/user/5717/files/e5ed8b58-3980-11e7-9666-b9998ce28f66
+Orders to Order History - https://git.generalassemb.ly/storage/user/5717/files/83426710-3982-11e7-8773-5de649ed7105
 
 # Reflections and Lessons Learned
 What went well and what could have gone better:
