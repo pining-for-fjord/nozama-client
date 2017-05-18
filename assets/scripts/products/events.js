@@ -39,6 +39,7 @@ const returnHome = function () {
 const addHandlers = () => {
   $('.product-category').on('click', getProducts)
   $('.navbar-brand').on('click', returnHome)
+  $('.keep-shopping').on('click', returnHome)
 }
 
 module.exports = {
