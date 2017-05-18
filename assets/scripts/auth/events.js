@@ -26,7 +26,6 @@ const onSignOut = function (event) {
   const cartEvents = require('../carts/events')
   const id = store.cart._id
   cartEvents.deleteCart(id)
-//  console.log('sign out ran')
   userApi.signOut()
     .then(userUi.signOutSuccess)
     .catch(userUi.signOutFailure)
@@ -35,7 +34,6 @@ const onSignOut = function (event) {
 const onChgPswd = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-//  console.log('changed password')
   userApi.chgPswd(data)
     .then(userUi.chgPswdSuccess)
     .catch(userUi.chgPswdFailure)
@@ -46,30 +44,30 @@ const onChgPswd = function (event) {
 const linkSignUp = function () {
   $('.sign-in').hide()
   $('.sign-up').show()
-  $('.dropdown-menu').click(stopPropagation)
+  // $('.dropdown-menu').click(stopPropagation)
 }
 
 const linkSignIn = function () {
   $('.sign-up').hide()
   $('.sign-in').show()
-  $('.dropdown-menu').click(stopPropagation)
+  // $('.dropdown-menu').click(stopPropagation)
 }
 
 const linkChangePassword = function () {
   $('.sign-out').hide()
   $('.change-password').show()
-  $('.dropdown-menu').click(stopPropagation)
+  // $('.dropdown-menu').click(stopPropagation)
 }
 
 const linkAccount = function () {
   $('.change-password').hide()
   $('.sign-out').show()
-  $('.dropdown-menu').click(stopPropagation)
+  // $('.dropdown-menu').click(stopPropagation)
 }
 
-const stopPropagation = function () {
-  event.stopPropagation()
-}
+// const stopPropagation = function () {
+//   event.stopPropagation()
+// }
 
 const addHandlers = () => {
   $('.sign-up').hide()
@@ -83,6 +81,9 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChgPswd)
+  $('.dropdown-menu').click(function(event){
+    event.stopPropagation();
+});
 }
 
 module.exports = {

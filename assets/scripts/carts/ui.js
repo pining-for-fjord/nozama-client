@@ -15,7 +15,6 @@ const onUpdateCartSuccess = function (data) {
 }
 
 const onUpdateCartFailure = function (error) {
-  console.log(error.status)
   if (error.status === 404) {
     console.log('test')
     $('#alreadyInCart').modal('show')
@@ -23,7 +22,6 @@ const onUpdateCartFailure = function (error) {
 }
 
 const deleteCartSuccess = function (data) {
-  console.log('Cart deleted')
   store.user = null
   store.cart = null
 }

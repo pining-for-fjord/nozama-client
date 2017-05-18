@@ -46,7 +46,6 @@ const showCart = function (cartData) {
 function recalculateCart () {
   const fadeTime = 300
 
-  console.log('stuff happening')
   let subtotal = 0
 
   /* Sum up row totals */
@@ -68,8 +67,6 @@ function recalculateCart () {
     }
     $('.totals-value').fadeIn(fadeTime)
   })
-
-  console.log(total)
 }
 
 const addToCart = function (data) {
@@ -163,6 +160,11 @@ const deleteCart = (id) => {
 }
 
 const onGetCart = () => {
+  console.log(store.user)
+  if (store.user === undefined) {
+    $('#notSignedIn').modal('show')
+    return false
+  }
   api.show().then(ui.onGetCartSuccess).catch(ui.onGetCartFailure)
 }
 

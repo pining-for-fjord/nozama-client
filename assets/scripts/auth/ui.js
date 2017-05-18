@@ -13,7 +13,6 @@ const signUpFailure = () => {
 const signInSuccess = (data) => {
 //  console.log('signin success ran data is ', data)
   store.user = data.user
-  console.log(store.user)
   $('#sign-in').trigger('reset')
   $('.sign-in').hide()
   $('.sign-out').show()
@@ -37,6 +36,7 @@ const signOutSuccess = (data) => {
   $('#products').hide()
   $('#checkout-container').hide()
   $('#orders').hide()
+  store.user = {}
 }
 
 const signOutFailure = () => {

@@ -66,7 +66,7 @@ const cartExport = function () {
   function removeItem (removeButton) {
     /* Remove row from DOM and recalc cart total */
     const productRow = $(removeButton).parent().parent()
-    productRow.slideUp(fadeTime, function() {
+    productRow.slideUp(fadeTime, function () {
       productRow.remove()
       recalculateCart()
     })

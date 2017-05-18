@@ -38,7 +38,6 @@ const destroy = (id) => {
 }
 
 const update = (data, action) => {
-  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/carts/' + store.cart._id,
     method: 'PATCH',
