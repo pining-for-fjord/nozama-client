@@ -24,12 +24,21 @@ const hideProduct = function () {
   $('#product').hide()
 }
 
+const returnHome = function () {
+  $('#products').hide()
+  $('#cart').hide()
+  $('#checkout').hide()
+  $('#orders').hide()
+  $('#landing').show()
+  $('.about__section').show()
+}
 // js for handlebars for products
 
 // $('#cart').click(flip)
 
 const addHandlers = () => {
   $('.product-category').on('click', getProducts)
+  $('.navbar-brand').on('click', returnHome)
 }
 
 module.exports = {

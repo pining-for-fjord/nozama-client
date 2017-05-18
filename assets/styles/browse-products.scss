@@ -9,7 +9,6 @@
 // }
 
 h4 {
-  font-family: lato;
   font-size: 1.6rem;
   font-weight: 700;
 }
@@ -21,7 +20,7 @@ h4 {
 .card {
   max-width: 450px;
   height: 450px;
-  background: #e4effa;
+  background: white;
   margin: 50px auto;
   box-shadow: 0 3px 5px rgba(0,0,0,0.1);
   position: relative;
@@ -31,8 +30,10 @@ h4 {
     width: 100%;
     overflow: hidden;
     transition: height 100ms ease-out;
-    &.shrink {
-      height: 40%;
+  }
+  &:hover {
+    .image-wrapper {
+      height: 35%;
     }
   }
   .content-wrapper {
@@ -45,8 +46,8 @@ h4 {
       margin: 25px 0 0 0;
       font-size: 1.1rem;
       line-height: 1.5rem;
-      display: none;
-      opacity: 0;
+      // display: none;
+      // opacity: 0;
       transition: opacity 200ms ease-out;
       &.show {
         display: block;

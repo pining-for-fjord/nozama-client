@@ -13,11 +13,13 @@ const signUpFailure = () => {
 const signInSuccess = (data) => {
 //  console.log('signin success ran data is ', data)
   store.user = data.user
+  console.log(store.user)
   $('#sign-in').trigger('reset')
   $('.sign-in').hide()
   $('.sign-out').show()
   $('.dropdown-menu').trigger('click')
   cartsEvents.createCart()
+  $('#welcome').modal('show')
 }
 
 const signInFailure = () => {
@@ -27,7 +29,14 @@ const signInFailure = () => {
 }
 
 const signOutSuccess = (data) => {
-  store.user = null
+  $('.sign-in').show()
+  $('.sign-out').hide()
+  $('#signOut').modal('show')
+  $('#landing').show()
+  $('#cart').hide()
+  $('#products').hide()
+  $('#checkout-container').hide()
+  $('#orders').hide()
 }
 
 const signOutFailure = () => {
@@ -36,9 +45,9 @@ const signOutFailure = () => {
 
 const chgPswdSuccess = () => {
   $('#change-password').trigger('reset')
-  $('.dropdown-menu').trigger('click')
   $('#chgPswdSuccess').modal('show')
-//  console.log(data)
+  $('.sign-out').show()
+  $('.change-password').hide()
 }
 
 const chgPswdFailure = () => {

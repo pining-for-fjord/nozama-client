@@ -6,7 +6,7 @@
     <div class="product-details">
       <div class="product-title">{{name}}</div>
     </div>
-    <div class="product-price">{{price}}</div>
+    <div class="product-price">{{decimal price}}</div>
     <div class="product-quantity">
       <input type="number" value="1" min="1">
     </div>
@@ -15,6 +15,6 @@
         Remove
       </button>
     </div>
-    <div class="product-line-price">{{price}}</div>
+    <div class="product-line-price">{{decimal price}}</div>
   </div>
   {{/each}}

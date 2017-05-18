@@ -1,18 +1,32 @@
 {{#each orders as |order|}}
-  <h1 data-id="{{order.id}}"> <small>Date: {{order.createdAt}}</small></h1>
+  <h1 data-id="{{order.id}}"> <small>Date: {{date order.createdAt}}</small></h1>
   <div>
-    {{order.shippingAddress.recipientName}}
-    {{order.shippingAddress.address}}
-    {{order.shippingAddress.city}}
-    {{order.shippingAddress.state}}
-    {{order.shippingAddress.country}}
-    {{order.shippingAddress.zip}}
-    {{order.paymentDetails.totalPrice}}
-    {{#order.products}}
-      {{name}}
-      {{price}}
-      {{quantity}}
-    {{/order.products}}
+     <div class="order-shipping">
+        <div class="order-recipient">
+          {{order.shippingAddress.recipientName}}
+        </div>
+        <div class="order-address">
+          {{order.shippingAddress.address}}
+        </div>
+        <div class="order-city">
+          {{order.shippingAddress.city}}
+          {{order.shippingAddress.state}}
+          {{order.shippingAddress.zip}}
+        </div>
+        <div class="order-country">
+          {{order.shippingAddress.country}}
+        </div>
+    </div>
+    <div class="order-price">
+      {{decimal order.paymentDetails.totalPrice}}
+    </div>
+    <div class="order-proudcts">
+      {{#order.products}}
+        {{quantity}}
+        {{name}}
+        {{ decimal price}}
+      {{/order.products}}
+    </div>
   </div>
 
 {{/each}}

@@ -16,6 +16,7 @@ const getOrders = function () {
   $('#products').hide()
   $('#cart').hide()
   $('#checkout-container').hide()
+  $('.about__section').hide()
 }
 
 const getOrder = function (orderId) {
@@ -25,16 +26,12 @@ const getOrder = function (orderId) {
 }
 
 const createToken = function (event) {
-  console.log('card is', $('#card-number').val());
-  console.log('exp year is', $('#card-expiry-year').val());
-  console.log('exp month is', $('#card-expiry-month').val());
   event.preventDefault()
   Stripe.card.createToken({
     number: $('#card-number').val(),
     cvc: $('#card-cvc').val(),
     exp_month: $('#card-expiry-month').val(),
     exp_year: $('#card-expiry-year').val()
-
   }, stripeResponseHandler)
 }
 
@@ -45,7 +42,23 @@ const stripeResponseHandler = function (status, response) {
     const token = response.id
     console.log(token)
     store.stripeToken = token
-    ordersApi.create()
+    console.log('totalPrice for order is', store.cart.totalPrice);
+    const order = {
+      order: {
+        shippingAddress: {
+          recipientName: $('input[name=name]').val(),
+          address: $('input[name=address]').val(),
+          city: $('input[name=city]').val(),
+          state: $('input[name=state]').val(),
+          country: $('input[name=country]').val(),
+          zip: $('input[name=zip_code]').val()
+        },
+        totalPrice: parseInt(store.cart.totalPrice, 10),
+        products: store.cart.products
+      }
+    }
+    console.log('order is', order)
+    ordersApi.create(order, token)
     .then(ordersUi.createOrderSuccess)
     .catch(ordersUi.createOrderFailure)
   }
@@ -54,6 +67,11 @@ const stripeResponseHandler = function (status, response) {
 const hideOrder = function () {
   $('#order').hide()
   $('#checkout-container').hide()
+}
+const showOrderForm = function () {
+  $('#cart').hide()
+  $('#checkout-container').show()
+  $('.about__section').hide()
 }
 
 const setupStripe = function () {
@@ -67,6 +85,8 @@ const setupStripe = function () {
 const addHandlers = () => {
   $('#order-button').on('click', getOrders)
   $('#place-order').on('click', createToken)
+  $('#checkout-button').on('click', showOrderForm)
+
 }
 
 module.exports = {

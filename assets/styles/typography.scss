@@ -67,8 +67,33 @@
 }
 .glyphicon-shopping-cart {
   float: right;
-  font-size: 25px;
+  margin-top: 10px;
+  font-size: 200%;
 }
 body {
+  background-image: url('https://d2nwzygg3x0bhb.cloudfront.net/product-images/background.jpg');
+  background-size: cover;
+  background-position: center;
+
   padding-top: 70px;
+}
+
+.jumbotron {
+  background-image: url('https://d2nwzygg3x0bhb.cloudfront.net/product-images/banner.gif');
+  background-size: cover;
+  background-position: center;
+  color: #454241;
+}
+
+.cart-body {
+  margin: 0 auto;
+}
+
+.checkout_form {
+background: #e8e6e4;
+}
+
+.navbar-nav {
+  float: right;
+  margin-right: 4%;
 }

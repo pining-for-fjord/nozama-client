@@ -15,15 +15,17 @@ const getProductsSuccess = (data) => {
   $('.products').append(showProductsHTML)
   $('#landing').hide()
   $('#products').show()
-  const vw = $(window).outerWidth()
-  if (vw > 768) {
-    $('.card').hover(
-  function () {
-    $('.description').toggleClass('show')
-    $('.image-wrapper').toggleClass('shrink')
-    flip()
-  })
-  }
+  $('.about__section').hide()
+  // const vw = $(window).outerWidth()
+  // if (vw > 768) {
+  //   $('.card').hover(
+  // function () {
+  //   $('.description').toggleClass('show')
+  //   var hovered = $('.image-wrapper')
+  //   $('.image-wrapper:hover').toggleClass('shrink')
+  //   flip()
+  // })
+  // }
   for (let i = 0; i < products.products.products.length; i++) {
     $('#' + products.products.products[i]._id).on('click', function () {
       event.preventDefault()
@@ -32,12 +34,12 @@ const getProductsSuccess = (data) => {
   }
 }
 
-function flip () {
-  $('#cart').addClass('flipped')
-  $('#cart').addClass('added')
-  $('.backside').addClass('show')
-  $('.front').addClass('hide')
-}
+// function flip () {
+//   $('#cart').addClass('flipped')
+//   $('#cart').addClass('added')
+//   $('.backside').addClass('show')
+//   $('.front').addClass('hide')
+// }
 
 const getProductsFailure = (product) => {
 //  console.log('read bombed')

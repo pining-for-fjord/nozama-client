@@ -22,13 +22,14 @@ const show = (id) => {
   })
 }
 
-const create = (data) => {
+const create = (data, stripeToken) => {
   return $.ajax({
     url: config.apiOrigin + '/orders',
     method: 'POST',
     data,
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: 'Token token=' + store.user.token,
+      paymentToken: stripeToken
     }
   })
 }

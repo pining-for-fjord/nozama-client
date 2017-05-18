@@ -22,12 +22,14 @@ const hideCart = function () {
   $('#cart').hide()
 }
 
-const showCart = function () {
+const showCart = function (cartData) {
+  $('.about__section').hide()
   $('#cart').show()
   $('#landing').hide()
+  $('#products').hide()
 
   const showProductsHTML = showCartTemplate({
-    cart: store.cart
+    cart: cartData
   })
   $('.fullCart').empty()
   $('.fullCart').append(showProductsHTML)
@@ -41,10 +43,7 @@ const showCart = function () {
   /* Update quantity */
 }
 /* Recalculate cart */
-function recalculateCart ()
-{
-  const taxRate = 0.05
-  const shippingRate = 0
+function recalculateCart () {
   const fadeTime = 300
 
   console.log('stuff happening')
@@ -56,29 +55,33 @@ function recalculateCart ()
   })
 
   /* Calculate totals */
-  let tax = subtotal * taxRate
-  let shipping = (subtotal > 0 ? shippingRate : 0)
-  let total = subtotal + tax + shipping
+  const total = subtotal
 
   /* Update totals display */
-  $('.totals-value').fadeOut(fadeTime, function() {
+  $('.totals-value').fadeOut(fadeTime, function () {
     $('#cart-subtotal').html(subtotal.toFixed(2))
-    $('#cart-tax').html(tax.toFixed(2))
-    $('#cart-shipping').html(shipping.toFixed(2))
     $('#cart-total').html(total.toFixed(2))
-    if(total == 0){
+    if (total === 0) {
       $('.checkout').fadeOut(fadeTime)
-    }else{
+    } else {
       $('.checkout').fadeIn(fadeTime)
     }
     $('.totals-value').fadeIn(fadeTime)
   })
+
+  console.log(total)
 }
 
 const addToCart = function (data) {
+  if (!store.user) {
+    $('#addCartSignedOut').modal('show')
+    return
+  }
+  const newTotalPrice = store.cart.totalPrice += data.price
+  store.cart.totalPrice = newTotalPrice
   const params = {
     cart: {
-      totalPrice: data.price,
+      totalPrice: newTotalPrice,
       products: [{
         _id: data._id,
         sku: data.sku,
@@ -89,7 +92,6 @@ const addToCart = function (data) {
     }
   }
   store.cart.products.push(params.cart.products[0])
-  store.cart.totalPrice = data.price
   api.update(params, 'add')
     .then(ui.onUpdateCartSuccess)
     .catch(ui.onUpdateCartFailure)
@@ -99,9 +101,11 @@ const removeFromCart = function (id) {
   for (let i = 0; i < store.cart.products.length; i++) {
     if (id === store.cart.products[i]._id) {
       const data = store.cart.products[i]
+      const newTotalPrice = store.cart.totalPrice -= data.price
+      store.cart.totalPrice = newTotalPrice
       const params = {
         cart: {
-          totalPrice: data.price,
+          totalPrice: newTotalPrice,
           products: [{
             _id: data._id,
             sku: data.sku,
@@ -112,7 +116,6 @@ const removeFromCart = function (id) {
         }
       }
       store.cart.products.splice(i, 1)
-      store.cart.totalPrice = data.price
       api.update(params, 'remove')
         .then(ui.onUpdateCartSuccess)
         .catch(ui.onUpdateCartFailure)
@@ -124,17 +127,17 @@ $('.product-quantity input').change(function () {
   updateQuantity(this)
 })
 
-function updateQuantity (quantityInput)
-{
+function updateQuantity (quantityInput) {
   /* Calculate line price */
-  let productRow = $(quantityInput).parent().parent()
-  let price = parseFloat(productRow.children('.product-price').text())
-  let quantity = $(quantityInput).val()
-  let linePrice = price * quantity
+  const productRow = $(quantityInput).parent().parent()
+  const price = parseFloat(productRow.children('.product-price').text())
+  const quantity = $(quantityInput).val()
+  const linePrice = price * quantity
+  const fadeTime = 300
 
   /* Update line price display and recalc cart totals */
   productRow.children('.product-line-price').each(function () {
-    $(this).fadeOut(fadeTime, function() {
+    $(this).fadeOut(fadeTime, function () {
       $(this).text(linePrice.toFixed(2))
       recalculateCart()
       $(this).fadeIn(fadeTime)
@@ -142,28 +145,39 @@ function updateQuantity (quantityInput)
   })
 }
 
-  function removeItem (removeButton)
-  {
-    const fadeTime = 300
-    /* Remove row from DOM and recalc cart total */
-    let productRow = $(removeButton).parent().parent()
-    const id = $(removeButton).parent().parent().attr('id')
-    productRow.slideUp(fadeTime, function () {
-      productRow.remove()
-      recalculateCart()
-    })
+function removeItem (removeButton) {
+  const fadeTime = 300
+  /* Remove row from DOM and recalc cart total */
+  const productRow = $(removeButton).parent().parent()
+  const id = $(removeButton).parent().parent().attr('id')
+  productRow.slideUp(fadeTime, function () {
+    productRow.remove()
+    recalculateCart()
+  })
 
-    removeFromCart(id)
-  }
+  removeFromCart(id)
+}
+
+const deleteCart = (id) => {
+  api.destroy(id).then(ui.deleteCartSuccess).catch(ui.deleteCartFailure)
+}
+
+const onGetCart = () => {
+  api.show().then(ui.onGetCartSuccess).catch(ui.onGetCartFailure)
+}
 
 const addHandlers = () => {
-  $('.glyphicon-shopping-cart').on('click', showCart)
-  $('.glyphicon-shopping-cart').on('click', recalculateCart)
+  // $('.glyphicon-shopping-cart').on('click', showCart)
+  // $('.glyphicon-shopping-cart').on('click', recalculateCart)
+  $('.glyphicon-shopping-cart').on('click', onGetCart)
 }
 
 module.exports = {
   hideCart,
   addHandlers,
   createCart,
-  addToCart
+  addToCart,
+  deleteCart,
+  showCart,
+  recalculateCart
 }
