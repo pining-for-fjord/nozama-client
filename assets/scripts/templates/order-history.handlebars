@@ -18,13 +18,13 @@
         </div>
     </div>
     <div class="order-price">
-      {{decimal order.paymentDetails.totalPrice}}
+      {{decimal order.totalPrice}}
     </div>
-    <div class="order-proudcts">
+    <div class="order-products">
       {{#order.products}}
         {{quantity}}
         {{name}}
-        {{ decimal price}}
+        {{decimal price}}</br>
       {{/order.products}}
     </div>
   </div>
