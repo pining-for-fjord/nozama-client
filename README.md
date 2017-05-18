@@ -28,12 +28,18 @@ An ecommerce site specializing in all the things people want:
 
 # Reflections and Lessons Learned
 What went well and what could have gone better:
--Deirdre Forte
-  - ADD
--Jon Cohen: I think having a team made the project much easier.  We didn't have much trouble with merge conflicts and were able to stay on top of what everyone was doing.  In addition, the team's varied skillsets made the product better.  I'm very happy with the UI, which is not really my strength, and the back end.  When it came to API work I felt more comfortable and our team's individual strengths complemented each other.
-  I struggled a bit with the back end and express.  Our team, particularly me, had difficulty implementing some back end changes meaning that we could not create the ability to change the quantity of the products in the cart.
+
+-Deirdre Forte:
+This was a great team experience. Overall, the lesson learned over and over again is the importance of planning.  Two of my main concerns was the how four contributors would be able to "git push" without merge conflicts and the complexity of having three collections in addition to users.  Establishing a good git procedure and comprehensive ERD these were never issues.  I also learned the value of peer programming.   I peer programmed with each team member.  In addition to learning new coding skills from each, it also made it easier to understand other's code.  My team members rock!
+
+-Jon Cohen:
+I think having a team made the project much easier.  We didn't have much trouble with merge conflicts and were able to stay on top of what everyone was doing.  In addition, the team's varied skillsets made the product better.  I'm very happy with the UI, which is not really my strength, and the back end.  When it came to API work I felt more comfortable and our team's individual strengths complemented each other.
+
+I struggled a bit with the back end and express.  Our team, particularly me, had difficulty implementing some back end changes meaning that we could not create the ability to change the quantity of the products in the cart.
+
 -Ryan Ongchoa
   - ADD
+
 -Alan Henderson
   - ADD
 
