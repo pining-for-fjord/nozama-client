@@ -36,7 +36,8 @@ const createOrderSuccess = () => {
   cartApi.createCart()
   $('#orderPlaced').modal('show')
   $('input').val('')
-  $('select').empty()
+  $('#card-expiry-month').val('Month')
+  $('#card-expiry-year').val('Year')
   $('#place-order').hide()
 }
 
