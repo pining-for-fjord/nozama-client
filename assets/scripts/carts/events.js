@@ -39,6 +39,7 @@ const showCart = function (cartData) {
   /* Assign actions */
   $('.remove-product').on('click', function () {
     removeItem(this)
+    updatePrice(cartData.totalPrice)
   })
   /* Update quantity */
 }
@@ -74,6 +75,14 @@ function recalculateCart () {
     }
     $('.totals-value').fadeIn(fadeTime)
   })
+
+  console.log(total)
+  updatePrice(total)
+}
+
+const updatePrice = (totalPrice) => {
+  store.cart.totalPrice = totalPrice
+  console.log(store.cart)
 }
 
 const addToCart = function (data) {
