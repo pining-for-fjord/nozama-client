@@ -1,5 +1,5 @@
 {{#each orders as |order|}}
-  <h1 data-id="{{order.id}}"> <small>Date: {{order.createdAt}}</small></h1>
+  <h1 data-id="{{order.id}}"> <small>Date: {{date order.createdAt}}</small></h1>
   <div>
      <div class="order-shipping">
         <div class="order-recipient">
@@ -18,12 +18,12 @@
         </div>
     </div>
     <div class="order-price">
-      {{order.paymentDetails.totalPrice}}
+      {{decimal order.paymentDetails.totalPrice}}
     </div>
     <div class="order-proudcts">
       {{#order.products}}
         {{name}}
-        {{price}}
+        {{ decimal price}}
         {{quantity}}
       {{/order.products}}
     </div>
