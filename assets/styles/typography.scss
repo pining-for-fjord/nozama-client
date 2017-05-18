@@ -70,5 +70,17 @@
   font-size: 25px;
 }
 body {
+  background-image: url('http://www.pptbackgrounds.org/uploads/soft-white-backgrounds-wallpapers.jpg');
+  background-size: cover;
+  background-position: center;
+
   padding-top: 70px;
+  font-family: 'Cinzel';
+}
+
+.jumbotron {
+  background-image: url('http://d2nwzygg3x0bhb.cloudfront.net/product-images/banner.gif');
+  background-size: cover;
+  background-position: center;
+  color: #454241;
 }
