@@ -19,6 +19,7 @@ const signInSuccess = (data) => {
   $('.sign-out').show()
   $('.dropdown-menu').trigger('click')
   cartsEvents.createCart()
+  $('#welcome').modal('show')
 }
 
 const signInFailure = () => {
@@ -28,7 +29,8 @@ const signInFailure = () => {
 }
 
 const signOutSuccess = (data) => {
-  console.log('Success')
+  $('.sign-in').show()
+  $('.sign-out').hide()
 }
 
 const signOutFailure = () => {
@@ -36,10 +38,11 @@ const signOutFailure = () => {
 }
 
 const chgPswdSuccess = () => {
+  console.log('change password success is happeining');
   $('#change-password').trigger('reset')
-  $('.dropdown-menu').trigger('click')
   $('#chgPswdSuccess').modal('show')
-//  console.log(data)
+  $('.sign-out').show()
+  $('.change-password').hide()
 }
 
 const chgPswdFailure = () => {
