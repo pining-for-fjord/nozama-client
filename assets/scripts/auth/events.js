@@ -17,7 +17,6 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  console.log(data)
   userApi.signIn(data)
     .then(userUi.signInSuccess)
     .catch(userUi.signInFailure)
@@ -27,7 +26,6 @@ const onSignOut = function (event) {
   const cartEvents = require('../carts/events')
   const id = store.cart._id
   cartEvents.deleteCart(id)
-//  console.log('sign out ran')
   userApi.signOut()
     .then(userUi.signOutSuccess)
     .catch(userUi.signOutFailure)
@@ -36,7 +34,6 @@ const onSignOut = function (event) {
 const onChgPswd = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  console.log(data)
   userApi.chgPswd(data)
     .then(userUi.chgPswdSuccess)
     .catch(userUi.chgPswdFailure)

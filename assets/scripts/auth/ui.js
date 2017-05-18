@@ -7,14 +7,12 @@ const store = require('../store')
 const signUpSuccess = () => {
   $('#sign-up').trigger('reset')
 }
-const signUpFailure = (error) => {
+const signUpFailure = () => {
   $('#sign-up').trigger('reset')
-  console.log(error)
 }
 const signInSuccess = (data) => {
 //  console.log('signin success ran data is ', data)
   store.user = data.user
-  console.log(store.user)
   $('#sign-in').trigger('reset')
   $('.sign-in').hide()
   $('.sign-out').show()
@@ -50,7 +48,6 @@ const chgPswdSuccess = () => {
   $('#chgPswdSuccess').modal('show')
   $('.sign-out').show()
   $('.change-password').hide()
-  console.log(store.user)
 }
 
 const chgPswdFailure = () => {
