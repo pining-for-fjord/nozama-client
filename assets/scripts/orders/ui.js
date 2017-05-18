@@ -36,8 +36,8 @@ const createOrderSuccess = () => {
   $('#place-order').hide()
 }
 
-const createOrderFailure = (error) => {
-  console.log(error)
+const createOrderFailure = () => {
+  $('#orderError').modal('show')
 }
 
 module.exports = {
