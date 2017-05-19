@@ -41,7 +41,7 @@ const onGetCartSuccess = function (data) {
 }
 
 const onAddToCartFailure = function (error) {
-  console.log(error)
+  $('#duplicateCartItem').modal('show')
 }
 
 module.exports = {
