@@ -16,7 +16,6 @@ const signUpFailure = () => {
 }
 const signInSuccess = (data) => {
   store.user = data.user
-  console.log(data.user);
   $('#sign-in').trigger('reset')
   $('.sign-in').hide()
   $('.sign-out').show()
