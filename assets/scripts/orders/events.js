@@ -22,14 +22,39 @@ const getOrder = function (orderId) {
   .catch(ordersUi.getOrderFailure)
 }
 
-const createToken = function (event) {
+const checkout = function (event) {
+  const handler = StripeCheckout.configure({
+    key: 'pk_test_9WemBaMhQokjQEfkfAQiLXmr',
+    image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+    locale: 'auto',
+    email: store.user.email,
+    token: function (token) {
+      const tok = token.id
+      const order = {
+        order: {
+          shippingAddress: {
+            recipientName: $('input[name=name]').val(),
+            address: $('input[name=address]').val(),
+            city: $('input[name=city]').val(),
+            state: $('input[name=state]').val(),
+            country: $('input[name=country]').val(),
+            zip: $('input[name=zip_code]').val()
+          },
+          totalPrice: parseInt(store.cart.totalPrice, 10),
+          products: store.cart.products
+        }
+      }
+      ordersApi.create(order, tok)
+      .then(ordersUi.createOrderSuccess)
+      .catch(ordersUi.createOrderFailure)
+    }
+  })
+  handler.open({
+    name: 'Nozama',
+    description: '2 widgets',
+    amount: store.cart.totalPrice
+  })
   event.preventDefault()
-  Stripe.card.createToken({
-    number: $('#card-number').val(),
-    cvc: $('#card-cvc').val(),
-    exp_month: $('#card-expiry-month').val(),
-    exp_year: $('#card-expiry-year').val()
-  }, stripeResponseHandler)
 }
 
 const stripeResponseHandler = function (status, response) {
@@ -79,15 +104,16 @@ const setupStripe = function () {
   Stripe.setPublishableKey('pk_test_9WemBaMhQokjQEfkfAQiLXmr')
 }
 
-// js for handlebars for orderucts
 
-// $('#cart').click(flip)
 
 const addHandlers = () => {
   $('#order-button').on('click', getOrders)
-  $('#order-form').on('submit', createToken)
+  $('#order-form').on('submit', checkout)
   $('#checkout-button').on('click', showOrderForm)
   $('#shop-again').on('click', prod.returnHomeButton)
+  window.addEventListener('popstate', function() {
+    handler.close()
+  })
 }
 
 module.exports = {
