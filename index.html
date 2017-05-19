@@ -13,6 +13,8 @@
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+
 </head>
 
 <body>
@@ -424,9 +426,9 @@
 
   <!-- ****************ORDER CHECKOUT handlebars ************************* -->
   <section class="checkout-container animated fadeInUp" id="checkout-container">
-    <div class="container wrapper col-lg-12">
+    <div class="container wrapper col-centered col-lg-6">
       <div class="row cart-body">
-        <div class="col-lg-6">
+        <div>
           <form id="order-form" class="form-horizontal" method="post" action="">
             <!--SHIPPING METHOD-->
             <div class="panel panel-info checkout_form">
@@ -474,71 +476,18 @@
                 </div>
 
               </div>
+              <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Secure Payment</div>
+                <div class="form-group">
+                  <div class="text-center">
+                    <button type="submit" id="place-order" class="btn btn-primary btn-submit-fix">Place Order</button>
+                    <button type="button" id="shop-again" class="btn btn-primary btn-submit-fix">Shop Again</button>
+                  </div>
+                  </form>
+                </div>
             </div>
 
         </div>
         <!--SHIPPING METHOD END-->
-        <!--CREDIT CART PAYMENT-->
-        <div class="col-lg-6 checkout_form">
-          <div class="panel panel-info checkout_form">
-            <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Secure Payment</div>
-            <div class="panel-body">
-              <div class="form-group">
-                <div class="col-md-12"><strong>Credit Card Number:</strong></div>
-                <div class="col-md-12"><input size='16' maxlength='16' type="text" id='card-number' class="form-control" name="card[number]" value="" required></div>
-              </div>
-              <div class="form-group">
-                <div id='card-cvc' class="col-md-12"><strong>Card CVC:</strong></div>
-                <div class="col-md-12"><input size='3' maxlength='3' type="text" class="form-control" name="card[cvc]" value="" required></div>
-              </div>
-              <div class="form-group">
-                <div class="col-md-12">
-                  <strong>Expiration Date</strong>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                  <select id='card-expiry-month' class="form-control" name="card[exp_month]" required>
-                                        <option value="">Month</option>
-                                        <option value="01">01</option>
-                                        <option value="02">02</option>
-                                        <option value="03">03</option>
-                                        <option value="04">04</option>
-                                        <option value="05">05</option>
-                                        <option value="06">06</option>
-                                        <option value="07">07</option>
-                                        <option value="08">08</option>
-                                        <option value="09">09</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                </select>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                  <select id='card-expiry-year' class="form-control" name="card[year]" required>
-                                        <option value="">Year</option>
-                                        <option value="2017">2017</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2019">2019</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2025">2025</option>
-                                </select>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                  <button type="submit" id="place-order" class="btn btn-primary btn-submit-fix">Place Order</button>
-                  <button type="button" id="shop-again" class="btn btn-primary btn-submit-fix">Shop Again</button>
-                </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--CREDIT CART PAYMENT END-->
       </div>
     </div>
   </section>
