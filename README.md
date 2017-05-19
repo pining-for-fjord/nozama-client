@@ -50,7 +50,8 @@ I struggled a bit with the back end and express.  Our team, particularly me, had
 I'd like to second what Dee Dee said about peer programming.  I also learned to love peer programming and got a lot out of it, especially following team members doing work in areas I'm less strong in.  I also had a great experience on this project.  Go team Fjord!
 
 -Ryan Ongchoa
-  - ADD
+I enjoy working with a team!  Was a little scared in regards on how to manage the work with GIT etc.  But luckly Alan help us all with writen
+documentations for it on the day we started our projects and were able to get past most of the project without any issues.  The teamwork and members in our group was great!  Able to peer program with everyone in our group and each person brings a skill set that is different then my own.  I was able to learn alot from the interactions with peer programing.  I was a little intimidate at the start of this project since I did not want to hold my team back.  But after getting started that feeling soon went away.  Everyone member in my group is great and would love to work with any of them in the future.  PINING FOR THE FJORDS!
 
 -Alan Henderson
   - ADD
