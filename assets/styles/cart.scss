@@ -7,17 +7,17 @@
 
 .product-price {
   float: left;
-  width: 12%;
+  width: 10%;
 }
 
 .product-removal {
   float: left;
-  width: 9%;
+  width: 10%;
 }
 
 .product-line-price {
-  float: left;
-  width: 12%;
+  float: right;
+  width: 20%;
   text-align: right;
 }
 
@@ -140,7 +140,7 @@ label {
   padding: 6px 25px;
   background-color: #6b6;
   color: #fff;
-  font-size: 25px;
+  font-size: 20px;
   border-radius: 3px;
 }
 
@@ -235,4 +235,23 @@ label {
   .totals .totals-item .totals-value {
     width: 40%;
   }
+}
+
+.productprice{
+margin-left: 37%;
+
+
+}
+.productremoval{
+margin-left: 6%;
+
+}
+.productlineprice{
+  float: right;
+  margin-right: 3%;
+}
+
+.carttest {
+  // background-color: #e8f7f7;
+  background-color: #e8e6e4;
 }

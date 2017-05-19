@@ -1,33 +1,49 @@
-{{#each orders as |order|}}
-<div class="order-history">
-  <h3 data-id="{{order.id}}"> <small>Order date: {{date order.createdAt}}</small></h3>
-     <div class="order-shipping">
-        <h5>Shipped to:</h5>
-        <div class="order-recipient">
-          {{order.shippingAddress.recipientName}}
-        </div>
-        <div class="order-address">
-          {{order.shippingAddress.address}}
-        </div>
-        <div class="order-city">
-          {{order.shippingAddress.city}}
-          {{order.shippingAddress.state}}
-          {{order.shippingAddress.zip}}
-        </div>
-        <div class="order-country">
-          {{order.shippingAddress.country}}<br/>
-        </div>
-    </div>
-    <div class="order-price">
-      <h5 <small>Total price: ${{decimal order.totalPrice}}</small></h5></br>
-    </div>
-    <div class="order-products">
-      <h5>Products:</h5>
-      {{#order.products}}
-        {{name}}
-        <h4><small>${{decimal price}}</small></h4></br>
-      {{/order.products}}
-    </div>
-  </div>
 
+
+{{#each orders as |order|}}
+<div class="orderHistory">
+<table class="table table-bordered tablebilling">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Order Date</th>
+      <th>Shipped to</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Country</th>
+      <th>Total Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{date order.createdAt}}</td>
+      <td>{{order.shippingAddress.recipientName}}</td>
+      <td>{{order.shippingAddress.address}}</td>
+      <td>{{order.shippingAddress.city}}</td>
+      <td>{{order.shippingAddress.state}}</td>
+      <td>{{order.shippingAddress.zip}}</td>
+      <td>{{order.shippingAddress.country}}</td>
+      <td>${{decimal order.totalPrice}}</td>
+    </tbody>
+  </table>
+<table class="table table-bordered tableproducts">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Products</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  {{#order.products}}
+  <tbody>
+    <tr>
+      <td>{{name}}</td>
+      <td>${{decimal price}}</td>
+    </tr>
+  </tbody>
+{{/order.products}}
+</table>
+<div>
+{{else}}
+<h2 class="text-center">You have no orders. Happy Shopping!</h2>
 {{/each}}

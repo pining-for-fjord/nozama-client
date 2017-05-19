@@ -85,7 +85,7 @@ const setupStripe = function () {
 
 const addHandlers = () => {
   $('#order-button').on('click', getOrders)
-  $('#place-order').on('click', createToken)
+  $('#order-form').on('submit', createToken)
   $('#checkout-button').on('click', showOrderForm)
   $('#shop-again').on('click', prod.returnHomeButton)
 }

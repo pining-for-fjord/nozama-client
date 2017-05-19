@@ -30,11 +30,11 @@ TEAM FJORD - can we add to this?
 # Design
 - ERD, Schema and User Stories https://git.generalassemb.ly/ga-wdi-boston/team-project/files/44/ERD.USER.docx
 - Wireframes:
-Landing - https://git.generalassemb.ly/storage/user/5717/files/e28eb522-3980-11e7-885b-d57e27d4f867
-Landing to Show Products - https://git.generalassemb.ly/storage/user/5717/files/86be3e32-3982-11e7-93c5-7ffd0d4c0fdd
-Landing Show Products to Cart - https://git.generalassemb.ly/storage/user/5717/files/dd38e0fc-3980-11e7-826b-ab57ed755eaf
-Cart to Orders - https://git.generalassemb.ly/storage/user/5717/files/e5ed8b58-3980-11e7-9666-b9998ce28f66
-Orders to Order History - https://git.generalassemb.ly/storage/user/5717/files/83426710-3982-11e7-8773-5de649ed7105
+--Landing - https://git.generalassemb.ly/storage/user/5717/files/e28eb522-3980-11e7-885b-d57e27d4f867
+--Landing to Show Products - https://git.generalassemb.ly/storage/user/5717/files/86be3e32-3982-11e7-93c5-7ffd0d4c0fdd
+--Landing Show Products to Cart - https://git.generalassemb.ly/storage/user/5717/files/dd38e0fc-3980-11e7-826b-ab57ed755eaf
+--Cart to Orders - https://git.generalassemb.ly/storage/user/5717/files/e5ed8b58-3980-11e7-9666-b9998ce28f66
+--Orders to Order History - https://git.generalassemb.ly/storage/user/5717/files/83426710-3982-11e7-8773-5de649ed7105
 
 # Reflections and Lessons Learned
 What went well and what could have gone better:
@@ -50,7 +50,8 @@ I struggled a bit with the back end and express.  Our team, particularly me, had
 I'd like to second what Dee Dee said about peer programming.  I also learned to love peer programming and got a lot out of it, especially following team members doing work in areas I'm less strong in.  I also had a great experience on this project.  Go team Fjord!
 
 -Ryan Ongchoa
-  - ADD
+I enjoy working with a team!  Was a little scared in regards on how to manage the work with GIT etc.  But luckly Alan help us all with writen
+documentations for it on the day we started our projects and were able to get past most of the project without any issues.  The teamwork and members in our group was great!  Able to peer program with everyone in our group and each person brings a skill set that is different then my own.  I was able to learn alot from the interactions with peer programing.  I was a little intimidate at the start of this project since I did not want to hold my team back.  But after getting started that feeling soon went away.  Everyone member in my group is great and would love to work with any of them in the future.  PINING FOR THE FJORDS!
 
 -Alan Henderson
   - ADD
