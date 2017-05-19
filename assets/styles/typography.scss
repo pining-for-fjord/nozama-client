@@ -80,9 +80,12 @@ body {
 
 .jumbotron {
   background-image: url('https://d2nwzygg3x0bhb.cloudfront.net/product-images/banner.gif');
+  background-position:left;
   background-size: cover;
-  background-position: center;
   color: #454241;
+  font-family: 'Monoton';
+  color: #70deda;
+  font-weight: 900;
 }
 
 .cart-body {
