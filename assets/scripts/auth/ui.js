@@ -6,9 +6,13 @@ const store = require('../store')
 
 const signUpSuccess = () => {
   $('#sign-up').trigger('reset')
+  $('#signUpSuccess').modal('show')
+  $('.dropdown-menu').trigger('click')
 }
 const signUpFailure = () => {
   $('#sign-up').trigger('reset')
+  $('#signUpFailure').modal('show')
+  $('.dropdown-menu').trigger('click')
 }
 const signInSuccess = (data) => {
   store.user = data.user
