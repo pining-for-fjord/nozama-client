@@ -80,9 +80,9 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChgPswd)
-  $('.dropdown-menu').click(function(event){
-    event.stopPropagation();
-});
+  $('.dropdown-menu').click(function (event) {
+    event.stopPropagation()
+  })
 }
 
 module.exports = {
