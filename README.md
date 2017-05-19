@@ -54,7 +54,9 @@ I enjoy working with a team!  Was a little scared in regards on how to manage th
 documentations for it on the day we started our projects and were able to get past most of the project without any issues.  The teamwork and members in our group was great!  Able to peer program with everyone in our group and each person brings a skill set that is different then my own.  I was able to learn alot from the interactions with peer programing.  I was a little intimidate at the start of this project since I did not want to hold my team back.  But after getting started that feeling soon went away.  Everyone member in my group is great and would love to work with any of them in the future.  PINING FOR THE FJORDS!
 
 -Alan Henderson
-  - ADD
+This was a great team and a fun project. I think Building an online storefront was more complicated than any of us thought but we got through it. Every member of this team had something unique to bring to the table. We pair programmed through some of the more complicated functionality which I think helped us all learn more about it as we went.
+Working with Stripe was interesting. It was good experience to work with a third party API like this.
+We weren't able to get in all of the functionality we wanted, but I am very proud of the site we built and how we worked as a team. The parrot may have ceased to be, but the FJORD legacy lives on. 
 
 ## Dependencies
 
