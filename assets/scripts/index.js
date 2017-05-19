@@ -26,5 +26,4 @@ $(() => {
   productsEvents.hideProduct()
   ordersEvents.addHandlers()
   ordersEvents.hideOrder()
-  ordersEvents.setupStripe()
 })

@@ -44,6 +44,7 @@ const checkout = function (event) {
           products: store.cart.products
         }
       }
+
       ordersApi.create(order, tok)
       .then(ordersUi.createOrderSuccess)
       .catch(ordersUi.createOrderFailure)
@@ -51,42 +52,42 @@ const checkout = function (event) {
   })
   handler.open({
     name: 'Nozama',
-    description: '2 widgets',
+    description: 'Nozama Order',
     amount: store.cart.totalPrice
   })
   event.preventDefault()
 }
 
-const stripeResponseHandler = function (status, response) {
-  if (response.error) {
-    console.log(response.error)
-    $('.orderIssue').text(response.error.message)
-    $('#orderError').modal('show')
-    return false
-  } else {
-    const token = response.id
-
-    store.stripeToken = token
-
-    const order = {
-      order: {
-        shippingAddress: {
-          recipientName: $('input[name=name]').val(),
-          address: $('input[name=address]').val(),
-          city: $('input[name=city]').val(),
-          state: $('input[name=state]').val(),
-          country: $('input[name=country]').val(),
-          zip: $('input[name=zip_code]').val()
-        },
-        totalPrice: parseInt(store.cart.totalPrice, 10),
-        products: store.cart.products
-      }
-    }
-    ordersApi.create(order, token)
-    .then(ordersUi.createOrderSuccess)
-    .catch(ordersUi.createOrderFailure)
-  }
-}
+// const stripeResponseHandler = function (status, response) {
+//   if (response.error) {
+//     console.log(response.error)
+//     $('.orderIssue').text(response.error.message)
+//     $('#orderError').modal('show')
+//     return false
+//   } else {
+//     const token = response.id
+//
+//     store.stripeToken = token
+//
+//     const order = {
+//       order: {
+//         shippingAddress: {
+//           recipientName: $('input[name=name]').val(),
+//           address: $('input[name=address]').val(),
+//           city: $('input[name=city]').val(),
+//           state: $('input[name=state]').val(),
+//           country: $('input[name=country]').val(),
+//           zip: $('input[name=zip_code]').val()
+//         },
+//         totalPrice: parseInt(store.cart.totalPrice, 10),
+//         products: store.cart.products
+//       }
+//     }
+//     ordersApi.create(order, token)
+//     .then(ordersUi.createOrderSuccess)
+//     .catch(ordersUi.createOrderFailure)
+//   }
+// }
 
 const hideOrder = function () {
   $('#order').hide()
@@ -100,9 +101,9 @@ const showOrderForm = function () {
   $('#place-order').show()
 }
 
-const setupStripe = function () {
-  Stripe.setPublishableKey('pk_test_9WemBaMhQokjQEfkfAQiLXmr')
-}
+// const setupStripe = function () {
+//   Stripe.setPublishableKey('pk_test_9WemBaMhQokjQEfkfAQiLXmr')
+// }
 
 
 
@@ -111,15 +112,11 @@ const addHandlers = () => {
   $('#order-form').on('submit', checkout)
   $('#checkout-button').on('click', showOrderForm)
   $('#shop-again').on('click', prod.returnHomeButton)
-  window.addEventListener('popstate', function() {
-    handler.close()
-  })
 }
 
 module.exports = {
   getOrders,
   getOrder,
   hideOrder,
-  addHandlers,
-  setupStripe
+  addHandlers
 }
