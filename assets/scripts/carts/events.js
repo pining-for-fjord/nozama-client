@@ -71,7 +71,7 @@ function recalculateCart () {
 }
 
 const addToCart = function (data) {
-  if (!store.user) {
+  if (!store.user || jQuery.isEmptyObject(store.user)) {
     $('#addCartSignedOut').modal('show')
     return
   }
