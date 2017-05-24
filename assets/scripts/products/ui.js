@@ -16,24 +16,27 @@ const getProductsSuccess = (data) => {
   $('#products').show()
   $('.about__section').hide()
 
-  for (let i = 0; i < products.products.products.length; i++) {
-    $('#' + products.products.products[i]._id).on('click', function () {
-      event.preventDefault()
-      cartsEvents.addToCart(products.products.products[i])
+  $('.browse-products').on('click', function () {
+    event.preventDefault()
+    console.log(event.target.id)
+    const result = $.grep(products.products.products, function (e) {
+      return e._id === event.target.id
     })
-  }
+    console.log('result is', result)
+    cartsEvents.addToCart(result[0])
+  })
 }
 
-const getProductsFailure = (product) => {
-
+const getProductsFailure = (error) => {
+  console.log(error)
 }
 
 const getProductSuccess = (product) => {
   store.product = product
 }
 
-const getProductFailure = (product) => {
-//  console.log('read bombed')
+const getProductFailure = (error) => {
+  console.log(error)
 }
 
 module.exports = {
