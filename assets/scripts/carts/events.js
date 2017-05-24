@@ -158,11 +158,13 @@ function removeItem (removeButton) {
 }
 
 const deleteCart = () => {
-  api.destroy().then(ui.deleteCartSuccess).catch(ui.deleteCartFailure)
+  api.destroy()
+  .then(ui.deleteCartSuccess)
+  .catch(ui.deleteCartFailure)
 }
 
 const onGetCart = () => {
-  if (store.user === undefined) {
+  if (!store.user || jQuery.isEmptyObject(store.user)) {
     $('#notSignedIn').modal('show')
     return false
   }
