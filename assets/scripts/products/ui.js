@@ -18,25 +18,23 @@ const getProductsSuccess = (data) => {
 
   $('.browse-products').on('click', function () {
     event.preventDefault()
-    console.log(event.target.id)
     const result = $.grep(products.products.products, function (e) {
       return e._id === event.target.id
     })
-    console.log('result is', result)
     cartsEvents.addToCart(result[0])
   })
 }
 
 const getProductsFailure = (error) => {
-  console.log(error)
+log
 }
 
 const getProductSuccess = (product) => {
   store.product = product
 }
 
-const getProductFailure = (error) => {
-  console.log(error)
+const getProductFailure = (product) => {
+
 }
 
 module.exports = {
