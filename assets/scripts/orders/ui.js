@@ -27,18 +27,13 @@ const getOrderFailure = (error) => {
 
 const createOrderSuccess = () => {
   const cartApi = require('../carts/events')
-  const api = require('../carts/api')
-  const ui = require('../carts/ui')
-  api.destroy()
-  .then(ui.deleteCartSuccess)
-  .catch(ui.deleteCartFailure)
-  .then(cartApi.createCart)
+  cartApi.deleteCart()
+  cartApi.createCart()
   $('#orderPlaced').modal('show')
   $('input').val('')
   $('#card-expiry-month').val('Month')
   $('#card-expiry-year').val('Year')
   $('#place-order').hide()
-  console.log(store.cart)
 }
 
 const createOrderFailure = () => {
